@@ -123,7 +123,7 @@ const InstrucoesBox = styled.div`
     width: 100%;
 `
 const Instrucao = styled.p`
-    color: rgba(175, 175, 175, 0.69);
+    color: #7C7AAD;
     font-size: 0.8em;
     margin: 0px;
 `
