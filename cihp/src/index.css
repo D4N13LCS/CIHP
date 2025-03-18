@@ -1,3 +1,22 @@
+@font-face{
+  font-family: 'mona';
+  src: url('./assets/Fonts/mona.ttf') format('ttf');
+}
+
+*{
+  --cor1: #423FA6;
+  --cor2: #8784D9;
+  --cor3: #B1AEF2;
+  --cor4: #F24464;
+  --cor9: #8d2d3f;
+  --cor5: #9c98988f;
+  --cor6: #F2F2DC;
+  --cor7: #A6524B;
+  --cor8: #3370c0;
+  margin: 0px;
+  
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +24,44 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: whitesmoke;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#wp{
+  height: 35px;
+}
+
+#inst{
+  height: 39px;
+}
+
+.hideeye{
+  font-size: 25px;
+  color: #8784D9;
+}
+
+.hideeye:hover{
+  cursor: pointer;
+}
+
+.hideeyeEmp{
+  cursor: pointer;
+  color: #8784D9;
+}
+
+.hideeyeONG{
+  cursor: pointer;
+  color: #8784D9;
+}
+
+.marcado{
+  border: 2px solid #8784D9;
+  border-radius: 10px;
+  transition: 70ms ease-in-out;
+}
+

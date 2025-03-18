@@ -1,24 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import VolunteerProfile from './pages/volunteerProfile';
+import OngProfile from './pages/OngProfile';
+import Home from './pages/Home';
+import FullVagas from './pages/FullVagas';
+import LoginVoluntario from './pages/LoginVoluntario';
+import LoginEmpresa from './pages/LoginEmpresa';
+import LoginONG from './pages/LoginONG';
+import SignupVoluntario from './pages/SignupVoluntario';
+import SignupEmpresa from './pages/SignupEmpresa';
+import SignupONG from './pages/SignupONG';
+import Perfis from './layouts/perfis';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/voluntario' element={<Perfis opcao1='Trabalhos concluídos' opcao2='Prêmios recebidos' opcao3='Vagas'/>}>
+              <Route path='' element={<VolunteerProfile/>}/>
+          </Route> 
+          <Route path='/ONG' element={<OngProfile/>}/>
+          <Route path='/Vagas' element={<FullVagas/>}/>
+          <Route path='/LoginVoluntario' element={<LoginVoluntario/>}/>
+          <Route path='/LoginEmpresa' element={<LoginEmpresa/>}/>
+          <Route path='/LoginONG' element={<LoginONG/>}/>
+          <Route path='/SignupVoluntario' element={<SignupVoluntario/>}/>
+          <Route path='/SignupEmpresa' element={<SignupEmpresa/>}/>
+          <Route path='/SignupONG' element={<SignupONG/>}/>
+        </Routes>
+      </Router>
+    </>
   );
 }
 
