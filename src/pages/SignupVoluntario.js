@@ -43,7 +43,7 @@ const TitleWelcome = styled.h1`
 
 const WelcomeMessage = styled.p`
     text-align: justify;
-    color:rgba(175, 175, 175, 0.69);
+    color: #7C7AAD;
 `
 
 const WelcomeImg = styled.img`
