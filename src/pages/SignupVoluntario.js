@@ -104,7 +104,7 @@ const Entrar = styled.button`
     border: 1px solid #8784D9;
     border-radius: 12px;
     padding: 4px;
-    color: rgba(156, 152, 152, 0.67);
+    color: #7C7AAD;
     &:hover{
         cursor: pointer;
         background-color: #423FA6;
