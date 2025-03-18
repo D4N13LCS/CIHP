@@ -11,18 +11,27 @@ const ContainerCarrosel = styled.div`
     align-items: center;
     background-color:rgba(177, 174, 242, 0.46);
     padding-top: 50px;
+
+    
+    
 `
 
 const ContainerImg = styled.div`
     display: flex;
     align-items: center;
+    justify-content:center;
     padding: 1em;
+
+    
 `
 
 const ContainerTxt = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.8em;
+    @media screen and (max-width: 768px){
+       width: 225px;
+    }
 `
 
 const TitleCarousel = styled.h1`
@@ -42,11 +51,20 @@ const Span = styled.span`
     &:hover{
         cursor: pointer;
     }
+
+    @media screen and (max-width: 768px){
+       
+    }
 `
 
 const Img = styled.img`
     height: 320px;
     width: 320px;
+
+    @media screen and (max-width: 768px){
+        height: 250px;
+        width: 250px;
+    }
 `
 
 function Carousel(props){

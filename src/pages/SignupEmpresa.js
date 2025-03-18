@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Empresa from '../assets/IMGS/LogoEmpresas2.png';
 
+const Div = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+`
 
 const Container = styled.div`
     display: flex;
@@ -10,7 +17,6 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     gap: 2em;
-    height: 100vh;
     @media screen and (max-width:650px){
         flex-direction: column;
     }
@@ -38,7 +44,7 @@ const TitleWelcome = styled.h1`
 
 const WelcomeMessage = styled.p`
     text-align: justify;
-    color:rgba(175, 175, 175, 0.69);
+    color: #7C7AAD;
 `
 
 const WelcomeImg = styled.img`
@@ -99,7 +105,7 @@ const Entrar = styled.button`
     border: 1px solid #8784D9;
     border-radius: 12px;
     padding: 4px;
-    color: rgba(156, 152, 152, 0.67);
+    color: #7C7AAD;
     &:hover{
         cursor: pointer;
         background-color: #423FA6;
@@ -118,7 +124,7 @@ const InstrucoesBox = styled.div`
     width: 100%;
 `
 const Instrucao = styled.p`
-    color: rgba(175, 175, 175, 0.69);
+    color: #7C7AAD;
     font-size: 0.8em;
     margin: 0px;
 `
@@ -152,10 +158,11 @@ function SignupEmpresa(){
 
     return(
         <>
+            <Div>
             <Container>
                     <WelcomeBox>
                         <WelcomeImg src={Empresa}/> 
-                        <TitleWelcome>Empresa - Sign Up</TitleWelcome>
+                        <TitleWelcome>Sign Up</TitleWelcome>
                         <WelcomeMessage>Transforme seu tempo em impacto</WelcomeMessage>
                         <InstrucoesBox>
                                 <Instrucao>A senha deve conter no mínimo 8 caracteres</Instrucao>
@@ -198,6 +205,7 @@ function SignupEmpresa(){
                         </FormLogin>
                     </LoginBox>
             </Container>
+            </Div>
         </>
     )
 }

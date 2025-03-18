@@ -4,13 +4,20 @@ import styled from 'styled-components';
 import LogoONG from '../assets/IMGS/LogoONGs.png';
 
 
+const Div = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+`
+
 const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 2em;
-    height: 100vh;
     @media screen and (max-width:650px){
         flex-direction: column;
     }
@@ -25,6 +32,7 @@ const WelcomeBox = styled.div`
     padding: 0px 30px;
     background-color:rgba(177, 174, 242, 0.29);
     border-radius: 8px;
+    padding-bottom: 1em;
     @media screen and (max-width:650px){
         border: none;
     }
@@ -38,7 +46,7 @@ const TitleWelcome = styled.h1`
 
 const WelcomeMessage = styled.p`
     text-align: justify;
-    color: rgba(99, 97, 97, 0.58);
+    color: #7C7AAD;
 `
 
 const WelcomeImg = styled.img`
@@ -99,7 +107,7 @@ const Entrar = styled.button`
     border: 1px solid #B1AEF2;
     border-radius: 12px;
     padding: 4px;
-    color: rgba(156, 152, 152, 0.67);
+    color: #7C7AAD;
     &:hover{
         cursor: pointer;
         background-color: #423FA6;
@@ -136,6 +144,7 @@ function LoginONG(){
 
     return(
         <>
+            <Div>
             <Container>
                     <WelcomeBox>
                         <WelcomeImg src={LogoONG}/> 
@@ -175,6 +184,7 @@ function LoginONG(){
                         </FormLogin>
                     </LoginBox>
             </Container>
+            </Div>
         </>
     )
 }

@@ -16,7 +16,7 @@ const Modal = styled.div`
     width: 100%;
     position: absolute;
     top: 55px;
-    z-index: -99999999999999999999;
+    z-index: -2;
 `
 
 const UL = styled.ul`
@@ -31,13 +31,17 @@ const LI = styled.li`
     color: white;
     &:hover{
         cursor: pointer;
-        color: #B1AEF2;
+        color: rgb(220, 218, 250);
     }
 `
 
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: white;
+    &:hover{
+        cursor: pointer;
+        color:rgb(220, 218, 250);
+    }
 `
 
 function MenuDropDown(props){

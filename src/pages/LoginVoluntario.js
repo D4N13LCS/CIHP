@@ -2,6 +2,13 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+const Div = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+`
 
 const Container = styled.div`
     display: flex;
@@ -9,7 +16,6 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     gap: 2em;
-    height: 100vh;
     @media screen and (max-width:650px){
         flex-direction: column;
     }
@@ -22,6 +28,7 @@ const WelcomeBox = styled.div`
     gap: 0.5em;
     border-right: 3px solid #B1AEF2;
     padding: 0px 30px;
+    padding-bottom: 1em;
     background-color:rgba(177, 174, 242, 0.29);
     border-radius: 8px;
     @media screen and (max-width:650px){
@@ -37,7 +44,7 @@ const TitleWelcome = styled.h1`
 
 const WelcomeMessage = styled.p`
     text-align: justify;
-    color:rgba(99, 97, 97, 0.58);
+    color:  #7C7AAD;
 `
 
 const WelcomeImg = styled.img`
@@ -97,7 +104,7 @@ const Entrar = styled.button`
     border: 1px solid #B1AEF2;
     border-radius: 12px;
     padding: 4px;
-    color: rgba(156, 152, 152, 0.67);
+    color:   #7C7AAD;
     width: 100%;
     &:hover{
         cursor: pointer;
@@ -159,10 +166,11 @@ function LoginVoluntario(){
 
     return(
         <>
+            <Div>
             <Container>
                     <WelcomeBox>
                         <WelcomeImg src="LogoICO.ico"/>
-                        <TitleWelcome>Welcome back</TitleWelcome>
+                        <TitleWelcome>Bem vindo de volta!</TitleWelcome>
                         <WelcomeMessage>Transforme seu tempo em impacto</WelcomeMessage>
                     </WelcomeBox>
                     <LoginBox>
@@ -200,6 +208,7 @@ function LoginVoluntario(){
                         </FormLogin>
                     </LoginBox>
             </Container>
+            </Div>
         </>
     )
 }

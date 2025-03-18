@@ -10,7 +10,7 @@ const FilterIcon = styled.span`
     padding: 10px;
     border: 1px solid #423FA6;
     border-radius: 100px;
-    color:hsla(0, 0.00%, 0.00%, 0.59);
+    color:rgb(124, 122, 173);
     &:hover{
         cursor: pointer;
     }
@@ -19,7 +19,7 @@ const FilterIcon = styled.span`
         top: -5px;
         margin-left: 5px;
         content: "Filtros";
-        color:hsla(0, 0.00%, 0.00%, 0.59);
+        color:rgb(124, 122, 173);
         font-family: 'mona';
         font-size: 0.7em;
         z-index: -1;

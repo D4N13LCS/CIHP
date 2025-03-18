@@ -10,6 +10,7 @@ const Nav = styled.nav`
     width: 100%;
     border-bottom: 1px solid #D8D9D7;
     background-color: white;
+    z-index: 2;
 `
 
 const Img = styled.img`

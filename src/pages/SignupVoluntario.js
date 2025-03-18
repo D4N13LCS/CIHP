@@ -2,13 +2,20 @@ import { useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+const Div = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+`
+
 const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 2em;
-    height: 100vh;
     @media screen and (max-width:650px){
         flex-direction: column;
     }
@@ -174,6 +181,7 @@ function SignupVoluntario(){
 
     return(
         <>
+            <Div>
             <Container>
                     <WelcomeBox>
                         <WelcomeImg src='LogoICO.ico'/>
@@ -220,6 +228,7 @@ function SignupVoluntario(){
                         </FormLogin>
                     </LoginBox>
             </Container>
+            </Div>
         </>
     )
 }
