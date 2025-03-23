@@ -2,189 +2,208 @@ import { useNavigate, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Main = styled.main`
-    display: flex;
-    justify-content: space-between;
-    height: 100vh;
-    background-color:#C8C3D2;
-    
-`
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  background-color: #c8c3d2;
+`;
 
 const SideBar = styled.aside`
-    display: flex;
-    flex-direction: column;
-    gap: 1.1em;
-    background-color:#4B3F6E;
-    width: 13em;
-    
-`
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+  background-color: #4b3f6e;
+  transition: width 0.3s;
+  width: 3em;
+
+  &:hover {
+    width: 15em;
+  }
+`;
 
 const MenuLateral = styled.ul`
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 5px;
-    // height: fit-content;
-    list-style-type: none;
-    padding: 10px 20px 0px 10px;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+  list-style-type: none;
+  padding: 10px 10px 0px 10px;
+`;
 
 const OpcLateral = styled.li`
-    display: flex;
-    padding: 3px;
-    width: 100%;
-    text-align: left;
-    color:rgba(204, 203, 231, 0.49);
-    &:hover{
-        cursor: pointer;
-    }
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  width: 100%;
+  text-align: left;
+  color: rgba(204, 203, 231, 0.49);
+  opacity: 1;
 
-`
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.marcados {
+    color: #423fa6;
+    font-weight: bold;
+  }
+
+  span {
+    margin-right: ${(props) => (props.showText ? '10px' : '0')};
+  }
+
+  span.text {
+    opacity: 0;
+    transition: opacity 0.3s;
+    ${SideBar}:hover & {
+      opacity: 1;
+    }
+  }
+`;
 
 const LogoContainer = styled.div`
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #D3D2F8;
-    color:rgb(243, 226, 226);
-    font-weight: 500;
-`
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #d3d2f8;
+  color: rgb(243, 226, 226);
+  font-weight: 500;
+  margin-bottom: 10px;
+
+  p.text {
+    opacity: 0;
+    transition: opacity 0.3s;
+    ${SideBar}:hover & {
+      opacity: 1;
+    }
+  }
+`;
 
 const Logotipo = styled.img`
-    heigth: 60px;
-    width: 60px;
-`
+  height: 40px;
+  width: 40px;
+`;
 
 const FeedContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    gap: 10px;
-    background-color: white;
-    height: 500px;
-    width: fit-content;
-    margin: 0 auto;
-    border-radius: 20px;
-    padding: 15px;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  height: 500px;
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 15px;
+`;
 
 const Icon = styled.span`
-    height: 30px;
-    width: 30px;
-    color: #423FA6;
-`
+  height: 30px;
+  width: 30px;
+  color: #423fa6;
+  opacity: 1;
+`;
 
 const ContainerBotao = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25em;
-    margin-top: auto;
-    padding-bottom: 1em;
-    
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+  margin-top: auto;
+  padding-bottom: 1em;
+`;
 
 const Botao = styled.button`
-    display: flex;
-    align-items: center;
-    width: 90%;
-    background-color: #423FA6;
-    color: white;
-    border: 1px solid black;
-    border-radius: 10px;
-    &:hover{
-        cursor: pointer;
-        background-color:rgb(129, 125, 233);
+  display: flex;
+  align-items: center;
+  width: 90%;
+  background-color: #423fa6;
+  color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(129, 125, 233);
+  }
+
+  span.text {
+    opacity: 0;
+    transition: opacity 0.3s;
+    ${SideBar}:hover & {
+      opacity: 1;
     }
-`
+  }
+`;
 
 const BotaoIcon = styled.span`
-    display: flex;
-    align-items: center;
-    height: 30px;
-    width: 30px;
-`
+  display: flex;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+`;
 
-function Perfis(props){
-    let logout = useNavigate()
-    
-    function MarcarPagina(e){
-        mudarPagina()
-        e.target.classList.add('marcado');
-    }
+function Perfis(props) {
+  let logout = useNavigate();
 
-    let mudarPagina = ()=>{
-        const Menu = [...document.querySelector('ul').children]
-        Menu.forEach((el)=>{
-            el.classList.remove('marcado');
-        })
+  function MarcarPagina(e) {
+    if (e.target.tagName === 'ICON') return;
 
-        document.addEventListener('click', (evt)=>{
-            if(!evt.target.classList.contains('opcao')){
-                Menu.forEach((el)=>{
-                    el.classList.remove('marcado');
-                })        
-            }
-        })
-    }
+    const Menu = [...document.querySelector('ul').children];
+    Menu.forEach((el) => {
+      el.classList.remove('marcados');
+    });
 
-    function Logout(){
-        sessionStorage.removeItem('token');
-        logout('/')
-    }
+    e.target.classList.add('marcados');
+  }
 
-    return (
-        <>
-            <Main>
-                <SideBar>
-                    <LogoContainer>
-                        <Logotipo src='LogoICO.ico'/> <p>CIHP</p>
-                    </LogoContainer>
-                    <MenuLateral>
-                        <OpcLateral className='opcao' onClick={(evt)=>{MarcarPagina(evt)}}>
-                        <Icon className="material-symbols-outlined">
-                            person
-                        </Icon>
-                        {props.opcao1}
-                        </OpcLateral>
-                        <OpcLateral  className='opcao' onClick={(evt)=>{MarcarPagina(evt)}}>
-                            <Icon className="material-symbols-outlined" >
-                                work_history
-                            </Icon>
-                            {props.opcao2}
-                        </OpcLateral>
-                        <OpcLateral className='opcao' onClick={(evt)=>{MarcarPagina(evt)}}>
-                            <Icon className='material-symbols-outlined'>
-                                trophy
-                            </Icon>
-                            {props.opcao3}
-                        </OpcLateral>
-                        <OpcLateral className='opcao' onClick={(evt)=>{MarcarPagina(evt)}}>
-                            <Icon className='material-symbols-outlined'>
-                                badge
-                            </Icon>
-                            {props.opcao4}
-                        </OpcLateral>
-                    </MenuLateral>
-                        <ContainerBotao>
-                            <Botao onClick={()=>{Logout()}}>
-                                <BotaoIcon className='material-symbols-outlined'>
-                                    logout
-                                </BotaoIcon>
-                                Sair
-                            </Botao>
-                            <Botao>
-                                <BotaoIcon className='material-symbols-outlined'>
-                                    delete
-                                </BotaoIcon>
-                                Excluir conta
-                            </Botao>
-                        </ContainerBotao>
-                </SideBar>
-                <FeedContainer>
-                    <Outlet/>
-                </FeedContainer>
-            </Main>
-        </>
-    )
+  function Logout() {
+    sessionStorage.removeItem('token');
+    logout('/');
+  }
+
+  return (
+    <>
+      <Main>
+        <SideBar>
+          <LogoContainer>
+            <Logotipo src="LogoICO.ico" />
+            <p className='text'>CIHP</p>
+          </LogoContainer>
+          <MenuLateral>
+            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); }} showText>
+              <Icon className="material-symbols-outlined">person</Icon>
+              <span className="text">{props.opcao1}</span>
+            </OpcLateral>
+            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); }} showText>
+              <Icon className="material-symbols-outlined">work_history</Icon>
+              <span className="text">{props.opcao2}</span>
+            </OpcLateral>
+            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); }} showText>
+              <Icon className="material-symbols-outlined">trophy</Icon>
+              <span className="text">{props.opcao3}</span>
+            </OpcLateral>
+            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); }} showText>
+              <Icon className="material-symbols-outlined">badge</Icon>
+              <span className="text">{props.opcao4}</span>
+            </OpcLateral>
+          </MenuLateral>
+          <ContainerBotao>
+            <Botao onClick={() => { Logout(); }}>
+              <BotaoIcon className="material-symbols-outlined">logout</BotaoIcon>
+              <span className='text'>Sair</span>
+            </Botao>
+            <Botao>
+              <BotaoIcon className="material-symbols-outlined">delete</BotaoIcon>
+              <span className='text'>Excluir conta</span>
+            </Botao>
+          </ContainerBotao>
+        </SideBar>
+        <FeedContainer>
+          <Outlet />
+        </FeedContainer>
+      </Main>
+    </>
+  );
 }
 
 export default Perfis;
