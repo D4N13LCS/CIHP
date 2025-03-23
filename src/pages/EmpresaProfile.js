@@ -3,14 +3,11 @@ import styled from 'styled-components';
 const FeedContainerImg = styled.section`
     display: flex;
     align-items: center;
-    justify-content: center; 
     gap: 2em;
     height: 100px;
     width: 100%;
     padding: 10px;
     border-bottom: 2px solid #E1E0F4;
-
-   
 `
 
 const FundoImg = styled.div`
@@ -122,6 +119,3 @@ function VolunteerProfile(){
 }
 
 export default VolunteerProfile;
-
-// layout inspirado em: https://www.behance.net/gallery/176941329/Edit-Profile-UI
-

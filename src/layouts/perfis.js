@@ -4,15 +4,18 @@ import styled from 'styled-components';
 const Main = styled.main`
     display: flex;
     justify-content: space-between;
+    height: 100vh;
+    background-color:#C8C3D2;
+    
 `
 
 const SideBar = styled.aside`
     display: flex;
     flex-direction: column;
     gap: 1.1em;
-    background-color: white;
+    background-color:#4B3F6E;
     width: 13em;
-    border-radius: 10px 0px 0px 10px;
+    
 `
 
 const MenuLateral = styled.ul`
@@ -20,7 +23,7 @@ const MenuLateral = styled.ul`
     flex-direction: column;
     align-items: start;
     gap: 5px;
-    height: 120px;
+    // height: fit-content;
     list-style-type: none;
     padding: 10px 20px 0px 10px;
 `
@@ -30,7 +33,7 @@ const OpcLateral = styled.li`
     padding: 3px;
     width: 100%;
     text-align: left;
-    color:rgba(177, 174, 242, 0.49);
+    color:rgba(204, 203, 231, 0.49);
     &:hover{
         cursor: pointer;
     }
@@ -41,7 +44,7 @@ const LogoContainer = styled.div`
     display: flex;
     align-items: center;
     border-bottom: 1px solid #D3D2F8;
-    color: #423FA6;
+    color:rgb(243, 226, 226);
     font-weight: 500;
 `
 
@@ -58,7 +61,7 @@ const FeedContainer = styled.div`
     background-color: white;
     height: 500px;
     width: fit-content;
-    margin-top: 50px;
+    margin: 0 auto;
     border-radius: 20px;
     padding: 15px;
 `
@@ -72,7 +75,11 @@ const Icon = styled.span`
 const ContainerBotao = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.25em;
+    margin-top: auto;
+    padding-bottom: 1em;
+    
 `
 
 const Botao = styled.button`
@@ -134,21 +141,27 @@ function Perfis(props){
                     <MenuLateral>
                         <OpcLateral className='opcao' onClick={(evt)=>{MarcarPagina(evt)}}>
                         <Icon className="material-symbols-outlined">
-                            work_history
+                            person
                         </Icon>
                         {props.opcao1}
                         </OpcLateral>
-                        <OpcLateral className='opcao' onClick={(evt)=>{MarcarPagina(evt)}}>
-                            <Icon className='material-symbols-outlined'>
-                                trophy
+                        <OpcLateral  className='opcao' onClick={(evt)=>{MarcarPagina(evt)}}>
+                            <Icon className="material-symbols-outlined" >
+                                work_history
                             </Icon>
                             {props.opcao2}
                         </OpcLateral>
                         <OpcLateral className='opcao' onClick={(evt)=>{MarcarPagina(evt)}}>
                             <Icon className='material-symbols-outlined'>
-                                badge
+                                trophy
                             </Icon>
                             {props.opcao3}
+                        </OpcLateral>
+                        <OpcLateral className='opcao' onClick={(evt)=>{MarcarPagina(evt)}}>
+                            <Icon className='material-symbols-outlined'>
+                                badge
+                            </Icon>
+                            {props.opcao4}
                         </OpcLateral>
                     </MenuLateral>
                         <ContainerBotao>
