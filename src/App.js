@@ -1,6 +1,7 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import VolunteerProfile from './pages/volunteerProfile';
+import VolunteerTrabalhos from './pages/VolunteerTrabalhos';
 import OngProfile from './pages/OngProfile';
 import Home from './pages/Home';
 import FullVagas from './pages/FullVagas';
@@ -18,8 +19,10 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/voluntario' element={<Perfis opcao1='Perfil' opcao2='Trabalhos concluídos' opcao3='Prêmios recebidos' opcao4='Vagas'/>}>
-              <Route path='' element={<VolunteerProfile/>}/>
+          <Route path='/' element={<Perfis opcao1='Perfil' opcao2='Trabalhos concluídos' opcao3='Prêmios recebidos' opcao4='Vagas'/>}>
+              <Route path='voluntario' index element={<VolunteerProfile />} />
+              <Route path='trabalhos' element={<VolunteerTrabalhos />} />
+              
           </Route> 
           <Route path='/ONG' element={<OngProfile/>}/>
           <Route path='/Vagas' element={<FullVagas/>}/>

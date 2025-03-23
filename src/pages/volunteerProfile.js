@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const FeedContainerImg = styled.section`
+    
     display: flex;
     align-items: center;
     justify-content: center; 
@@ -25,6 +26,7 @@ const FundoImg = styled.div`
 `
 
 const FeedImg = styled.img`
+    
     height: 80px;
     width: 80px;
     position: relative;
@@ -36,16 +38,18 @@ const FeedImg = styled.img`
 `
 
 const InfoContainer = styled.div`
+    
     display: flex;
-    gap: 2em;
+    gap: 50em;
 `
 
 const Info = styled.div`
+    
     display: flex;
     flex-direction: column;
 `
 const InfoTitle = styled.h1`
-    font-size: 0.7em;
+    font-size: 1.5em;
     tex-align: center;
     
 `
@@ -67,6 +71,7 @@ const EditButton = styled.button`
 `
 
 const LocationField = styled.div`
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,8 +91,8 @@ const InputLoc = styled.input`
 
 const H1 = styled.h1`
     align-self: start;
-    padding-left: 20px;
-    font-size: 1.35em;
+    padding-left: 70px;
+    font-size: 2em;
 `
 
 function VolunteerProfile(){

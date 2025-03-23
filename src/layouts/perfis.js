@@ -84,6 +84,7 @@ const Logotipo = styled.img`
 `;
 
 const FeedContainer = styled.div`
+ 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,7 +94,8 @@ const FeedContainer = styled.div`
   width: fit-content;
   margin: 0 auto;
   border-radius: 20px;
-  padding: 15px;
+  padding: 5px;
+  margin-top: 150px;
 `;
 
 const Icon = styled.span`
@@ -143,7 +145,7 @@ const BotaoIcon = styled.span`
 `;
 
 function Perfis(props) {
-  let logout = useNavigate();
+  let navigate = useNavigate();
 
   function MarcarPagina(e) {
     if (e.target.tagName === 'ICON') return;
@@ -158,7 +160,7 @@ function Perfis(props) {
 
   function Logout() {
     sessionStorage.removeItem('token');
-    logout('/');
+    navigate('/');
   }
 
   return (
@@ -170,15 +172,22 @@ function Perfis(props) {
             <p className='text'>CIHP</p>
           </LogoContainer>
           <MenuLateral>
-            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); }} showText>
+            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina 
+            (evt); 
+            navigate('/voluntario')    
+            }} showText>
               <Icon className="material-symbols-outlined">person</Icon>
               <span className="text">{props.opcao1}</span>
             </OpcLateral>
-            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); }} showText>
+            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); 
+                navigate('/trabalhos')
+            }} showText>
               <Icon className="material-symbols-outlined">work_history</Icon>
               <span className="text">{props.opcao2}</span>
             </OpcLateral>
-            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); }} showText>
+            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); 
+                navigate('/vagas')
+            }} showText>
               <Icon className="material-symbols-outlined">trophy</Icon>
               <span className="text">{props.opcao3}</span>
             </OpcLateral>
