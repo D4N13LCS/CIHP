@@ -146,22 +146,25 @@ function LoginVoluntario(){
         event.preventDefault();
         const campos = document.querySelectorAll('input');
 
-        fetch('http://localhost:4000/Login', {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({username: campos[0].value, key: campos[1].value})
-        })
-        .then((res)=>{
-            return res.json();
-        })
-        .then((data)=>{
-            alert(data.message);
-            sessionStorage.setItem('token', data.token)
-            navigate('/voluntario')
-        })
-        .catch((err)=>{
-            alert(err);
-        })
+        alert('Login realizado com sucesso!')
+        navigate('/voluntario')
+        
+        // fetch('http://localhost:4000/Login', {
+        //     method: "POST",
+        //     headers: {"Content-Type": "application/json"},
+        //     body: JSON.stringify({username: campos[0].value, key: campos[1].value})
+        // })
+        // .then((res)=>{
+        //     return res.json();
+        // })
+        // .then((data)=>{
+        //     alert(data.message);
+        //     sessionStorage.setItem('token', data.token)
+        //     navigate('/voluntario')
+        // })
+        // .catch((err)=>{
+        //     alert(err);
+        // })
     }
 
     return(
