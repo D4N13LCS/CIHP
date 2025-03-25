@@ -38,9 +38,10 @@ const FeedImg = styled.img`
 `
 
 const InfoContainer = styled.div`
-    
     display: flex;
-    gap: 50em;
+    justify-content: center; 
+    align-items: center;
+    gap: 2.2em;
 `
 
 const Info = styled.div`
@@ -49,8 +50,9 @@ const Info = styled.div`
     flex-direction: column;
 `
 const InfoTitle = styled.h1`
+    
     font-size: 1.5em;
-    tex-align: center;
+    text-align: center;
     
 `
 
@@ -71,7 +73,7 @@ const EditButton = styled.button`
 `
 
 const LocationField = styled.div`
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,17 +83,19 @@ const LocationField = styled.div`
     height: 100px;
     width: 90%;
     padding: 10px;
+    margin-bottom: 5em;
 `
 
 const InputLoc = styled.input`
     border-radius: 5px;
     height: 25px;
     width: 250px;
+    
 `
 
 const H1 = styled.h1`
     align-self: start;
-    padding-left: 70px;
+    padding-left: 30px;
     font-size: 2em;
 `
 
@@ -106,7 +110,7 @@ function VolunteerProfile(){
                 <InfoContainer>
                     <Info>
                         <InfoTitle>Name</InfoTitle>
-                        <InfoItem>Daniel Cardoso</InfoItem>
+                        <InfoItem>Daniel Guei</InfoItem>
                     </Info>
                     <Info>
                         <InfoTitle>Email</InfoTitle>
@@ -120,6 +124,15 @@ function VolunteerProfile(){
                 <InputLoc placeholder='Insira sua localização'>
                 </InputLoc>
                 <EditButton>Alterar localização</EditButton>
+            </LocationField>
+            
+            <H1>Preferências</H1>
+            <LocationField>
+                
+                <InputLoc placeholder='Definir preferências de trabalho'>
+                </InputLoc>
+                <EditButton>Definir</EditButton>
+               
             </LocationField>
            
         </>

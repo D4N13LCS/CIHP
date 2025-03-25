@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import Trabalhos from '../components/Trabalhos.js';
 
 const FeedContainerImg = styled.section`
     display: flex;
@@ -38,12 +38,13 @@ const FeedImg = styled.img`
 
 const InfoContainer = styled.div`
     display: flex;
+    justify-content: center;
+    flex-direction: column;
     gap: 2em;
 `
 
 const Info = styled.div`
-    display: flex;
-    flex-direction: column;
+    
 `
 
 
@@ -82,7 +83,7 @@ function VolunteerProfile(){
             <InfoContainer>
                 <H1>Trabalhos concluídos</H1>
                 <Info>
-                    
+                    <Trabalhos/>
                 </Info>
 
             </InfoContainer>

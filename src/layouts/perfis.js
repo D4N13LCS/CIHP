@@ -92,6 +92,7 @@ const FeedContainer = styled.div`
   background-color: white;
   height: 500px;
   width: fit-content;
+  height: fit-content;
   margin: 0 auto;
   border-radius: 20px;
   padding: 5px;
