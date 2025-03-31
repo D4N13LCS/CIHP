@@ -78,15 +78,15 @@ const CardIcon = styled.span`
 
 function Trabalhos(){
     
-    const [itens, setItens] = useState(6);
+    const [itens, setItens] = useState(3);
 
     function avancar(){
-        itens >= images.length? setItens(6): setItens(itens+6)
+        itens >= images.length? setItens(3): setItens(itens+3)
     }
 
     function retroceder(){
         console.log(itens)
-        itens <= 6?setItens(images.length):setItens(itens-6)
+        itens <= 3?setItens(itens * 2):setItens(itens-3)
     }
     
     return(
@@ -100,7 +100,7 @@ function Trabalhos(){
                 <Div>
                 <ContainerCards className='cardsContainer'>
                     
-                    {images.slice(itens-6, itens).map((el, i)=>{
+                    {images.slice(itens-3, itens).map((el, i)=>{
                         return <Card key={i}>
                         <CardImage src={el} />
                         <CardTitle>Título {i + 1}</CardTitle>
