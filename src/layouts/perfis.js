@@ -65,9 +65,8 @@ const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 1px solid #d3d2f8;
-  color: rgb(243, 226, 226);
+  color: #EAE8FD;
   font-weight: 500;
-  margin-bottom: 10px;
 
   p.text {
     opacity: 0;
@@ -88,21 +87,18 @@ const FeedContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  background-color: white;
-  height: 500px;
-  width: fit-content;
-  height: fit-content;
+  // gap: 10px;
+  background-color: #EAE8FD;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
-  border-radius: 20px;
-  padding: 5px;
-  margin-top: 150px;
+  // border-radius: 20px;
 `;
 
 const Icon = styled.span`
   height: 30px;
   width: 30px;
-  color: #423fa6;
+  color: #EAE8FD;
   opacity: 1;
 `;
 

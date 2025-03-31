@@ -1,22 +1,23 @@
 import styled from 'styled-components';
 import Trabalhos from '../components/Trabalhos.js';
+import Status from '../components/Status.js';
+
 
 const FeedContainerImg = styled.section`
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: end; 
     gap: 2em;
-    height: 100px;
+    height: 40px;
     width: 100%;
     padding: 10px;
-    border-bottom: 2px solid #E1E0F4;
-
-   
+    // border-bottom: 2px solid #E1E0F4;
+    background-color: #4B3F6E;
 `
 
 const FundoImg = styled.div`
-    height: 80px;
-    width: 80px;
+    height: 32px;
+    width: 32px;
     border-radius: 50%;
     
     background-image: url("https://wallpapers.com/images/hd/camera-icon-simple-black-1gsn4ep2gufyauuq.jpg");
@@ -26,13 +27,11 @@ const FundoImg = styled.div`
 `
 
 const FeedImg = styled.img`
-    height: 80px;
-    width: 80px;
+    height: 32px;
+    width: 32px;
     position: relative;
     &:hover{
         cursor:pointer;
-        opacity: 0%;
-        transition: 200ms ease-in-out;
     }
 `
 
@@ -44,29 +43,24 @@ const InfoContainer = styled.div`
 `
 
 const Info = styled.div`
-    
+    display: flex;
+    justify-content: center;
+`
+const Div = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+    padding: 2.5em 0em 4em 0em;
 `
 
-
-const InfoItem = styled.p`
-    
-    
-`
-
-
-
-
-
-const InputLoc = styled.input`
-    border-radius: 5px;
-    height: 25px;
-    width: 250px;
-`
 
 const H1 = styled.h1`
     align-self: start;
     padding-left: 20px;
     font-size: 1.35em;
+    color: #423FA6;
 `
 
 function VolunteerProfile(){
@@ -79,14 +73,22 @@ function VolunteerProfile(){
                 </FundoImg>
                 
             </FeedContainerImg>
-         
+            <Div>
             <InfoContainer>
+                <Status trabalhos='20' horas='100' bairros='5'/>
                 <H1>Trabalhos concluídos</H1>
                 <Info>
                     <Trabalhos/>
                 </Info>
+                <H1>Trabalhos em andamento</H1>
+                <Info>
+                    <Trabalhos/>
+                </Info>
+                
 
             </InfoContainer>
+            </Div>
+           
            
         </>
     )

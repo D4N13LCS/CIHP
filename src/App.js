@@ -19,7 +19,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/' element={<Perfis opcao1='Perfil' opcao2='Trabalhos concluídos' opcao3='Prêmios recebidos' opcao4='Vagas'/>}>
+          <Route path='/' element={<Perfis opcao1='Perfil' opcao2='Trabalhos' opcao3='Prêmios recebidos' opcao4='Vagas'/>}>
               <Route path='voluntario' index element={<VolunteerProfile />} />
               <Route path='trabalhos' element={<VolunteerTrabalhos />} />
               
