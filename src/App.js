@@ -2,6 +2,7 @@ import './App.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import VolunteerProfile from './pages/volunteerProfile';
 import VolunteerTrabalhos from './pages/VolunteerTrabalhos';
+import VagasVolunteerProfile from './pages/VagasVolunteerProfile'
 import OngProfile from './pages/OngProfile';
 import Home from './pages/Home';
 import FullVagas from './pages/FullVagas';
@@ -22,7 +23,7 @@ function App() {
           <Route path='/' element={<Perfis opcao1='Perfil' opcao2='Trabalhos' opcao3='Prêmios recebidos' opcao4='Vagas'/>}>
               <Route path='voluntario' index element={<VolunteerProfile />} />
               <Route path='trabalhos' element={<VolunteerTrabalhos />} />
-              
+              <Route path='vagas' element={<VagasVolunteerProfile />} />
           </Route> 
           <Route path='/ONG' element={<OngProfile/>}/>
           <Route path='/Vagas' element={<FullVagas/>}/>
