@@ -9,7 +9,7 @@ const FeedContainerImg = styled.section`
     height: 100px;
     width: 100%;
     padding: 10px;
-    border-bottom: 2px solid #E1E0F4;
+    
 
    
 `
@@ -73,18 +73,36 @@ const EditButton = styled.button`
 `
 
 const LocationField = styled.div`
-
     display: flex;
-    justify-content: center;
     align-items: center;
+    
     gap: 1em;
     border-radius: 10px;
-    background-color:rgba(177, 174, 242, 0.56);
-    height: 100px;
-    width: 90%;
+    border: 1px solid rgb(0, 0, 0, 0.1);
+    height: 300px;
+    width: 700px;
+   
+
+    // width: 90%;
     padding: 10px;
     margin-bottom: 5em;
 `
+
+const TextArea = styled.textarea`
+    width: 500px;
+    height: 220px;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    font-size: 1em;
+`;
+
+const TextAreaContainer = styled.div`
+    display: flex;
+    
+    justify-content: space-between;
+    width: 100%;
+`;
 
 const InputLoc = styled.input`
     border-radius: 5px;
@@ -96,7 +114,61 @@ const InputLoc = styled.input`
 const H1 = styled.h1`
     align-self: start;
     padding-left: 30px;
-    font-size: 2em;
+    font-size: 1em;
+`
+
+const H2 = styled.h2`
+    align-self: start;
+    padding-left: 30px;
+    font-size: 0.8em;
+    color: rgb(0, 0, 0, 0.4)
+`
+
+const H1andH2area = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+
+
+`
+
+const PreferencesContainer = styled.div`
+    display: flex;
+    align-items: start;
+    gap: 3em;
+`
+
+const PreferencesSection = styled.section`
+    
+`
+
+const PreferencesTitle = styled.h2`
+    font-size: 1em;
+    color:rgb(140, 137, 250);
+    font-weight: 500;
+`
+
+const PreferencesCampo = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+`
+
+const CheckLabel = styled.label`
+    color: rgb(178, 175, 252);   
+`
+
+const PreferencesCheck = styled.input`
+    
+`
+
+const PreferencesBotao = styled.button`
+    border-radius: 4px;
+    border: 1px solid #6941C6;
+
+    &hover{
+        background-color: #6941C6;
+    }
 `
 
 function VolunteerProfile(){
@@ -110,7 +182,7 @@ function VolunteerProfile(){
                 <InfoContainer>
                     <Info>
                         <InfoTitle>Name</InfoTitle>
-                        <InfoItem>Daniel Guei</InfoItem>
+                        <InfoItem>Daniel Cardoso</InfoItem>
                     </Info>
                     <Info>
                         <InfoTitle>Email</InfoTitle>
@@ -119,22 +191,80 @@ function VolunteerProfile(){
                 </InfoContainer>
                 <EditButton>Editar</EditButton>
             </FeedContainerImg>
-            <H1>Location</H1>
+            
+            
             <LocationField>
-                <InputLoc placeholder='Insira sua localização'>
-                </InputLoc>
-                <EditButton>Alterar localização</EditButton>
+                <TextAreaContainer>
+                    <H1andH2area>
+                        <H1>Your Bio</H1>
+                        <H2>Descreva você</H2>
+                    </H1andH2area>
+                    <TextArea placeholder='Escreva sua bio aqui...' />
+                </TextAreaContainer>
             </LocationField>
             
-            <H1>Preferências</H1>
+            
             <LocationField>
-                
-                <InputLoc placeholder='Definir preferências de trabalho'>
-                </InputLoc>
-                <EditButton>Definir</EditButton>
-               
+                <H1>Preferências</H1>
+                <PreferencesContainer>
+                    
+                    <PreferencesSection>
+                        <PreferencesTitle>Causas</PreferencesTitle>
+                        <PreferencesCampo>
+                            <PreferencesCheck type='checkbox'></PreferencesCheck>
+                            <CheckLabel>Meio ambiente</CheckLabel>
+                        </PreferencesCampo>
+                        <PreferencesCampo>
+                            <PreferencesCheck type='checkbox'></PreferencesCheck>
+                            <CheckLabel>Equidade racial</CheckLabel>
+                        </PreferencesCampo>
+                        <PreferencesCampo>
+                            <PreferencesCheck type='checkbox'></PreferencesCheck>
+                            <CheckLabel>Violência contra mulher</CheckLabel>
+                        </PreferencesCampo>
+                        <PreferencesCampo>
+                            <PreferencesCheck type='checkbox'></PreferencesCheck>
+                            <CheckLabel>Igualdade de gênero</CheckLabel>
+                        </PreferencesCampo>
+                    </PreferencesSection>
+                    
+                    <PreferencesSection>
+                        <PreferencesTitle>modalidade</PreferencesTitle>
+                        <PreferencesCampo>
+                            <PreferencesCheck type='checkbox'></PreferencesCheck>
+                            <CheckLabel>Remoto</CheckLabel>
+                        </PreferencesCampo>
+                        <PreferencesCampo>
+                            <PreferencesCheck type='checkbox'></PreferencesCheck>
+                            <CheckLabel>presencial</CheckLabel>
+                        </PreferencesCampo>
+                        <PreferencesCampo>
+                            <PreferencesCheck type='checkbox'></PreferencesCheck>
+                            <CheckLabel>Híbrido</CheckLabel>
+                        </PreferencesCampo>
+        
+                    </PreferencesSection>
+                    
+                    <PreferencesSection>
+                        <PreferencesTitle>período do dia</PreferencesTitle>
+                        <PreferencesCampo>
+                            <PreferencesCheck type='checkbox'></PreferencesCheck>
+                            <CheckLabel>Matutino</CheckLabel>
+                        </PreferencesCampo>
+                        <PreferencesCampo>
+                            <PreferencesCheck type='checkbox'></PreferencesCheck>
+                            <CheckLabel>Vespertino</CheckLabel>
+                        </PreferencesCampo>
+                        <PreferencesCampo>
+                            <PreferencesCheck type='checkbox'></PreferencesCheck>
+                            <CheckLabel>Noturno</CheckLabel>
+                        </PreferencesCampo>
+        
+                    </PreferencesSection>
+
+
+                </PreferencesContainer>
             </LocationField>
-           
         </>
     )
 }

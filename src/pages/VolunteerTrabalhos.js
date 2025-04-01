@@ -12,7 +12,7 @@ const FeedContainerImg = styled.section`
     width: 100%;
     padding: 10px;
     // border-bottom: 2px solid #E1E0F4;
-    background-color: #4B3F6E;
+    background-color: #6941C6;
 `
 
 const FundoImg = styled.div`

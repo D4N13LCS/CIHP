@@ -26,7 +26,7 @@ const EstatiscaFilterContainer = styled.div`
 `
 
 const EstatiscaFilter = styled.select`
-    background-color: #DBD9E9;
+    // background-color: #DBD9E9;
     color: #3A2D75;
     padding: 3px;
     border-radius: 7px;
@@ -89,7 +89,7 @@ const EstatiscaInfo = styled.div`
     align-items: center;
     justify-content: center;
     gap: 0.25em;
-    background-color:rgba(180, 179, 179, 0.28);
+    // background-color:rgba(180, 179, 179, 0.28);
     padding: 2em;
     order: 1;
 

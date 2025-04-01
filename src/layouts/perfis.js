@@ -12,7 +12,7 @@ const SideBar = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 1.1em;
-  background-color: #4b3f6e;
+  background-color: #6941C6;
   transition: width 0.3s;
   width: 3em;
 
@@ -88,7 +88,7 @@ const FeedContainer = styled.div`
   flex-direction: column;
   align-items: center;
   // gap: 10px;
-  background-color: #EAE8FD;
+  background-color: white;
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -115,10 +115,10 @@ const Botao = styled.button`
   display: flex;
   align-items: center;
   width: 90%;
-  background-color: #423fa6;
+  background-color: transparent;
   color: white;
-  border: 1px solid black;
-  border-radius: 10px;
+  border: none;
+  
 
   &:hover {
     cursor: pointer;
