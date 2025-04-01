@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 const images = [
     require('../assets/IMGS/cardImage1.jpg'),
@@ -78,17 +78,60 @@ const CardIcon = styled.span`
 
 function Trabalhos(){
     
-    const [itens, setItens] = useState(3);
+    const [itens, setItens] = useState(6);
+    const [limite, setLimite] = useState(6);
 
     function avancar(){
-        itens >= images.length? setItens(3): setItens(itens+3)
+        itens >= images.length? setItens(limite): setItens(itens+limite)
     }
 
     function retroceder(){
-        console.log(itens)
-        itens <= 3?setItens(itens * 2):setItens(itens-3)
+        const resto = images.length % itens
+        console.log(`resto: ${resto}`)
+        console.log(`itens: ${itens}`)
+        
+        itens <= limite || itens - limite < limite?setItens(images.length + resto):setItens(itens-limite)
+        
     }
+
+    function reajustarCarrossel(){
+        if (window.innerWidth <= '650'){
+            setItens(1)
+            setLimite(1)
+        }
+        else if ('651'<= window.innerWidth & window.innerWidth <= '900'){
+            setItens(2)
+            setLimite(2)
+        }
+        else if ('901' <= window.innerWidth & window.innerWidth <= '1100'){
+            setItens(3)
+            setLimite(3)
+        }
+        else if('1101' <= window.innerWidth & window.innerWidth <= '1350'){
+            setItens(4)
+            setLimite(4)
+        }
+        else if ('1351' <= window.innerWidth & window.innerWidth<= '1500'){
+            setItens(5)
+            setLimite(5)
+        }else{
+            setItens(6)
+            setLimite(6)
+        }
+
+    }
+
+    useEffect(() => {
+        reajustarCarrossel(); 
     
+        window.addEventListener("resize", reajustarCarrossel);
+    
+        return () => {
+            window.removeEventListener("resize", reajustarCarrossel);
+        };
+
+    }, []);
+
     return(
         <>
             <ContainerCarrossel>
@@ -100,7 +143,7 @@ function Trabalhos(){
                 <Div>
                 <ContainerCards className='cardsContainer'>
                     
-                    {images.slice(itens-3, itens).map((el, i)=>{
+                    {images.slice(itens-limite, itens).map((el, i)=>{
                         return <Card key={i}>
                         <CardImage src={el} />
                         <CardTitle>Título {i + 1}</CardTitle>

@@ -61,6 +61,27 @@ const H1 = styled.h1`
     padding-left: 20px;
     font-size: 1.35em;
     color: #423FA6;
+
+    @media screen and (max-width: 360px){
+    
+    }
+    @media screen and (min-width: 361px) and (max-width: 500px){
+        align-self: center;
+        padding-left: 0px;
+    }
+    @media screen and (min-width: 501px) and (max-width: 768px){
+        align-self: center;
+        padding-left: 0px;
+    }
+    @media screen and (min-width: 769px) and (max-width: 1024px){
+    
+    }
+    @media screen and (min-width: 1025px) and (max-width: 1300px){
+    
+    }
+    @media screen and (min-width: 1301px){
+
+    }
 `
 
 function VolunteerProfile(){

@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 const EstatistcaContainer = styled.section`
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 1em;
     border-bottom: 1px dotted rgba(61, 61, 61, 0.16);
     padding-bottom: 1em;
+    
+    
 `
 
 const EstatiscaH1 = styled.h1`
@@ -17,7 +20,9 @@ const EstatiscaH1 = styled.h1`
 `
 
 const EstatiscaFilterContainer = styled.div`
-
+    display: flex;
+    justify-content: center;
+    width: 85%;
 `
 
 const EstatiscaFilter = styled.select`
@@ -26,14 +31,56 @@ const EstatiscaFilter = styled.select`
     padding: 3px;
     border-radius: 7px;
     font-weight: 500;
+    width: 85%;
+    
+    @media screen and (max-width: 360px){
+    
+    }
+    @media screen and (min-width: 361px) and (max-width: 500px){
+    
+    }
+    @media screen and (min-width: 501px) and (max-width: 768px){
+        
+    }
+    @media screen and (min-width: 769px) and (max-width: 1024px){
+        width: 100%;
+       
+    }
+    @media screen and (min-width: 1025px) and (max-width: 1300px){
+    
+    }
+    @media screen and (min-width: 1301px){
+
+    }
 `
 const EstatiscaFilterOpc = styled.option`
     
 `
 
 const EstatiscaIlustration = styled.img`
-    height: 250px;
-    width: 300px;
+    height: 265px;
+    width: 265px;
+    
+    @media screen and (max-width: 360px){
+    
+    }
+    @media screen and (min-width: 361px) and (max-width: 500px){
+    
+    }
+    @media screen and (min-width: 501px) and (max-width: 768px){
+        height: 250px;
+        width: 250px;
+    }
+    @media screen and (min-width: 769px) and (max-width: 1024px){
+        height: 300px;
+        width: 300px;
+    }
+    @media screen and (min-width: 1025px) and (max-width: 1300px){
+    
+    }
+    @media screen and (min-width: 1301px){
+
+    }
 `
 
 const EstatiscaInfo = styled.div`
@@ -44,6 +91,29 @@ const EstatiscaInfo = styled.div`
     gap: 0.25em;
     background-color:rgba(180, 179, 179, 0.28);
     padding: 2em;
+    order: 1;
+
+    @media screen and (max-width: 360px){
+    
+    }
+    @media screen and (min-width: 361px) and (max-width: 500px){
+    
+    }
+    @media screen and (min-width: 501px) and (max-width: 768px){
+        height: 250px;
+        width: 250px;
+        
+    }
+    @media screen and (min-width: 769px) and (max-width: 1024px){
+        height: 300px;
+        width: 300px;
+    }
+    @media screen and (min-width: 1025px) and (max-width: 1300px){
+    
+    }
+    @media screen and (min-width: 1301px){
+
+    }
 `
 
 const EstatisticaCampo = styled.div`
@@ -51,6 +121,25 @@ const EstatisticaCampo = styled.div`
     gap: 1em;
     width: 100%;
     color:rgb(65, 63, 185);
+
+    @media screen and (max-width: 360px){
+    
+    }
+    @media screen and (min-width: 361px) and (max-width: 500px){
+    
+    }
+    @media screen and (min-width: 501px) and (max-width: 768px){
+        font-size: 0.9em;
+    }
+    @media screen and (min-width: 769px) and (max-width: 1024px){
+    
+    }
+    @media screen and (min-width: 1025px) and (max-width: 1300px){
+    
+    }
+    @media screen and (min-width: 1301px){
+
+    }
 `
 
 const EstatiscaIcon = styled.img`
@@ -67,6 +156,16 @@ function Status(props){
         <>
             <EstatistcaContainer>
                 
+                <EstatiscaFilterContainer>
+                    <EstatiscaFilter>
+                        <EstatiscaFilterOpc>Qualquer data</EstatiscaFilterOpc>
+                        <EstatiscaFilterOpc>Esta semana</EstatiscaFilterOpc>
+                        <EstatiscaFilterOpc>Este mês</EstatiscaFilterOpc>
+                        <EstatiscaFilterOpc>Nos últimos 6 meses</EstatiscaFilterOpc>
+                        <EstatiscaFilterOpc>No último ano</EstatiscaFilterOpc>
+                    </EstatiscaFilter>
+                </EstatiscaFilterContainer>
+
                 <EstatiscaInfo>
                     <EstatiscaH1>Estatísticas</EstatiscaH1>
                     <EstatisticaCampo>
@@ -84,15 +183,7 @@ function Status(props){
 
                 <EstatiscaIlustration src='https://i.pinimg.com/originals/ae/e6/09/aee6093e58469b2c66072e0a05957d50.gif'/>
                
-                <EstatiscaFilterContainer>
-                    <EstatiscaFilter>
-                        <EstatiscaFilterOpc>Qualquer data</EstatiscaFilterOpc>
-                        <EstatiscaFilterOpc>Esta semana</EstatiscaFilterOpc>
-                        <EstatiscaFilterOpc>Este mês</EstatiscaFilterOpc>
-                        <EstatiscaFilterOpc>Nos últimos 6 meses</EstatiscaFilterOpc>
-                        <EstatiscaFilterOpc>No último ano</EstatiscaFilterOpc>
-                    </EstatiscaFilter>
-                </EstatiscaFilterContainer>
+                
             </EstatistcaContainer>
         </>
     )
