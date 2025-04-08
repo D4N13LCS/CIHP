@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom';
 import styled from "styled-components";
 import Searchbar from "../components/Searchbar";
 import Filter from "../components/Filter";
+import VolunteerCard from './VolunteerCards';
 
 const TitleContainer = styled.div`
     display: flex;
@@ -116,55 +117,30 @@ function VagasPopulares(){
             <ContainerVagas>
                 <Searchbar/>
                 <Filter/>
-                <Container>
-                    <Vaga>
-                        <ImgVaga src='https://img.freepik.com/vetores-gratis/pessoas-sem-teto_98292-2884.jpg?t=st=1732598331~exp=1732601931~hmac=2cafe56f332889fbdcf76af2c1468b5e8acc662f1e2cc80cb71c2a4b70978abf&w=740'/>
-                        <InfoVaga>
-                            <TitleVaga>Doação</TitleVaga>
-                            <DescricaoVaga>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, molestias.</DescricaoVaga>
-                        </InfoVaga>
-                        <InscricaoButton>Inscrever-se</InscricaoButton>
-                    </Vaga>
-                    <Vaga>
-                        <ImgVaga src='https://img.freepik.com/vetores-gratis/ilustracao-de-espirito-comunitario-desenhada-a-mao_23-2150188726.jpg?t=st=1732598682~exp=1732602282~hmac=5f6d460eb564a008c473b34420254182f1d57eee8d752a280da50b7d8adda2bd&w=740'/>
-                        <InfoVaga>
-                            <TitleVaga>Reflorestamento</TitleVaga>
-                            <DescricaoVaga>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, molestias.</DescricaoVaga>
-                        </InfoVaga>
-                        <InscricaoButton>Inscrever-se</InscricaoButton>
-                    </Vaga>
-                    <Vaga>
-                        <ImgVaga src='https://img.freepik.com/vetores-gratis/conceito-de-reciclagem-de-pessoas_52683-37055.jpg?t=st=1732599897~exp=1732603497~hmac=f5e2526274832e8b9d63316257292551bb328454a05edfcf0ce77df41d9287e1&w=740'/>
-                        <InfoVaga>
-                            <TitleVaga>Reciclagem</TitleVaga>
-                            <DescricaoVaga>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, molestias.</DescricaoVaga>
-                        </InfoVaga>
-                        <InscricaoButton>Inscrever-se</InscricaoButton>
-                    </Vaga>
-                    <Vaga>
-                        <ImgVaga src='https://img.freepik.com/vetores-gratis/voluntarios-ajudando-idosos_23-2148571216.jpg?t=st=1732600060~exp=1732603660~hmac=87b901ecbe4bc859de5968f235623afc587b714385d7ec4d09c16d0f811ed6db&w=740'/>
-                        <InfoVaga>
-                            <TitleVaga>Cuidado de idosos</TitleVaga>
-                            <DescricaoVaga>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, molestias.</DescricaoVaga>
-                        </InfoVaga>
-                        <InscricaoButton>Inscrever-se</InscricaoButton>
-                    </Vaga>
-                    <Vaga>
-                        <ImgVaga src='https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-de-aprendizagem_114360-6186.jpg?t=st=1734321409~exp=1734325009~hmac=00514a5fb242670dbf178c2cc72afc233da4b797ca062fe35c4f5c01a9c94691&w=740'/>
-                        <InfoVaga>
-                            <TitleVaga>Ensino nas favelas</TitleVaga>
-                            <DescricaoVaga>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, molestias.</DescricaoVaga>
-                        </InfoVaga>
-                        <InscricaoButton>Inscrever-se</InscricaoButton>
-                    </Vaga>
-                    <Vaga>
-                        <ImgVaga src='https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-de-dia-para-deficientes-fisicos_114360-4000.jpg?t=st=1734321585~exp=1734325185~hmac=4c8df7ff5810add17b6d087918034f592a18ef65f7730d93d6af1ac220793443&w=740'/>
-                        <InfoVaga>
-                            <TitleVaga>Reabilitação para PCDs</TitleVaga>
-                            <DescricaoVaga>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, molestias.</DescricaoVaga>
-                        </InfoVaga>
-                        <InscricaoButton>Inscrever-se</InscricaoButton>
-                    </Vaga>
+                <Container className='d-flex flex-wrap gap-5'>
+                <div className="d-flex flex-wrap gap-5">
+                    <VolunteerCard 
+                        imageUrl="https://cdn.atarde.com.br/img/Artigo-Destaque/1300000/1200x675/Passageiros-se-jogam-no-chao-de-onibus-para-fugir-0130697600202502121442-9.webp?fallback=https%3A%2F%2Fcdn.atarde.com.br%2Fimg%2FArtigo-Destaque%2F1300000%2FPassageiros-se-jogam-no-chao-de-onibus-para-fugir-0130697600202502121442.png%3Fxid%3D6553913&xid=6553913"
+                        location="São Gonçalo, RJ"
+                        title="Fugir do Tiroteio ao Som de Sweet Dreams"
+                        duration="10 horas"
+                        points="1000.15"
+                    />
+                    <VolunteerCard 
+                        imageUrl="https://www.torneiosdexadrez.com.br/wp-content/uploads/2024/06/idoso-jogando-xadrez-na-praca.png"
+                        location="Tangua, RJ"
+                        title="Jogar Xadrez com Velhos"
+                        duration="2 horas"
+                        points="150.00"
+                    />
+                    <VolunteerCard 
+                        imageUrl="https://ciclovivo.com.br/wp-content/uploads/2024/05/limpeza-praia-Ortobom-ciclovivo-1024x683.jpg"
+                        location="Maricá, RJ"
+                        title="Limpeza de Praia"
+                        duration="2 horas"
+                        points="450.00"
+                    />
+                </div>
                 </Container>
             </ContainerVagas>
         </>
