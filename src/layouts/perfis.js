@@ -6,19 +6,23 @@ const Main = styled.main`
   justify-content: space-between;
   height: 100vh;
   background-color: #c8c3d2;
+  width: 100%;
 `;
 
 const SideBar = styled.aside`
+  position: absolute;
   display: flex;
   flex-direction: column;
   gap: 1.1em;
   background-color: #6941C6;
   transition: width 0.3s;
   width: 3em;
-
+  height: 100vh;
+  z-index: 1;
   &:hover {
     width: 15em;
   }
+
 `;
 
 const MenuLateral = styled.ul`
@@ -69,6 +73,10 @@ const LogoContainer = styled.div`
   font-weight: 500;
 
   p.text {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
     opacity: 0;
     transition: opacity 0.3s;
     ${SideBar}:hover & {
@@ -83,16 +91,15 @@ const Logotipo = styled.img`
 `;
 
 const FeedContainer = styled.div`
- 
   display: flex;
   flex-direction: column;
   align-items: center;
-  // gap: 10px;
   background-color: white;
   width: 100%;
+  overflow-y: auto;
   height: 100%;
   margin: 0 auto;
-  // border-radius: 20px;
+  padding-left: 45px;
 `;
 
 const Icon = styled.span`
@@ -165,25 +172,25 @@ function Perfis(props) {
       <Main>
         <SideBar>
           <LogoContainer>
-            <Logotipo src="LogoICO.ico" />
+            <Logotipo src="../LogoICO.ico" />
             <p className='text'>CIHP</p>
           </LogoContainer>
           <MenuLateral>
             <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina 
             (evt); 
-            navigate('/voluntario')    
+            navigate(props.rota)    
             }} showText>
               <Icon className="material-symbols-outlined">person</Icon>
               <span className="text">{props.opcao1}</span>
             </OpcLateral>
             <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); 
-                navigate('/trabalhos')
+                navigate(props.rota + props.opcao2)
             }} showText>
               <Icon className="material-symbols-outlined">work_history</Icon>
               <span className="text">{props.opcao2}</span>
             </OpcLateral>
             <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); 
-                navigate('/vagas')
+                navigate( props.rota + props.opcao4)
             }} showText>
               <Icon className="material-symbols-outlined">trophy</Icon>
               <span className="text">{props.opcao3}</span>

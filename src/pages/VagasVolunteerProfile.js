@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Button, Form, InputGroup } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { Heart, Search } from "react-feather";
 
 const jobCategories = ["Todas", "Educação", "Saúde", "Meio Ambiente", "Cultura"];
@@ -51,6 +51,7 @@ const FullVagas = () => {
   );
 
   return (
+    
     <div className="container py-4 mt-4" style={{ backgroundColor: "#ede7f6" }}>
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h2 style={{ color: "#4a148c", fontWeight: "bold", fontFamily: "Merriweather, serif" }}>

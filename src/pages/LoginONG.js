@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import LogoONG from '../assets/IMGS/LogoONGs.png';
 
@@ -132,6 +132,7 @@ const P = styled.p`
 
 function LoginONG(){
     const [olho, setOlho] = useState('visibility');
+    const navigate = useNavigate();
 
     function showKey(){
         const eye = document.getElementsByClassName('hideeyeONG')[0]
@@ -175,7 +176,10 @@ function LoginONG(){
                                     visibility_off
                                 </span>
                             </ContainerCampo>
-                            <Entrar>Entrar</Entrar>
+                            <Entrar onClick={()=>{
+                                alert('Login realizado com sucesso!')
+                                navigate('/ONG')}
+                            }>Entrar</Entrar>
                             <P>Não possui cadastro ?
                                 <StyledLink to='/SignupONG'>
                                     clique aqui

@@ -1,9 +1,11 @@
-import Navbar from "../components/Navbar";
+import Styled from 'styled-components';
+
+
 
 
 function OngProfile(){
     return (
-        <Navbar opcao1='config' opcao2='Vagas publicadas' opcao3='publicar vaga' opcao4='excluir vaga'/>
+        <h1>Perfil da ONG</h1>
     )
 }
 

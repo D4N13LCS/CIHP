@@ -51,7 +51,7 @@ const Div = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    overflow-y: auto;
+    
     padding: 2.5em 0em 4em 0em;
 `
 

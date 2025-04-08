@@ -1,24 +1,26 @@
 import styled from 'styled-components';
 
-const FeedContainerImg = styled.section`
-    
+const ProfileContainer =  styled.div`
     display: flex;
+    flex-direction: column;
+    align-items:
+`
+
+const FeedContainerImg = styled.section`
+    display: flex;
+    
     align-items: center;
     justify-content: center; 
     gap: 2em;
     height: 100px;
     width: 100%;
     padding: 10px;
-    
-
-   
 `
 
 const FundoImg = styled.div`
     height: 80px;
     width: 80px;
     border-radius: 50%;
-    
     background-image: url("https://wallpapers.com/images/hd/camera-icon-simple-black-1gsn4ep2gufyauuq.jpg");
     background-position: center;
     bakcground-repeat: no-repeat;
@@ -39,6 +41,7 @@ const FeedImg = styled.img`
 
 const InfoContainer = styled.div`
     display: flex;
+    
     justify-content: center; 
     align-items: center;
     gap: 2.2em;
@@ -74,13 +77,14 @@ const EditButton = styled.button`
 
 const LocationField = styled.div`
     display: flex;
+    
     align-items: center;
     
     gap: 1em;
     border-radius: 10px;
     border: 1px solid rgb(0, 0, 0, 0.1);
     height: 300px;
-    width: 700px;
+    width: fit-content;
    
 
     // width: 90%;
@@ -99,9 +103,9 @@ const TextArea = styled.textarea`
 
 const TextAreaContainer = styled.div`
     display: flex;
-    
+    flex-direction: column;
     justify-content: space-between;
-    width: 100%;
+    width: fit-content;
 `;
 
 const InputLoc = styled.input`
@@ -175,6 +179,8 @@ function VolunteerProfile(){
 
     return (
         <>
+            
+            
             <FeedContainerImg>
                 <FundoImg>
                     <FeedImg src='https://cdn-icons-png.flaticon.com/512/10542/10542486.png'/>
@@ -265,6 +271,7 @@ function VolunteerProfile(){
 
                 </PreferencesContainer>
             </LocationField>
+            
         </>
     )
 }

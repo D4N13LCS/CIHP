@@ -87,35 +87,13 @@ const H1 = styled.h1`
     font-size: 1.35em;
 `
 
-function VolunteerProfile(){
+function EmpresaProfile(){
 
     return (
         <>
-            <FeedContainerImg>
-                <FundoImg>
-                    <FeedImg src='https://cdn-icons-png.flaticon.com/512/10542/10542486.png'/>
-                </FundoImg>
-                <InfoContainer>
-                    <Info>
-                        <InfoTitle>Name</InfoTitle>
-                        <InfoItem>Daniel Cardoso</InfoItem>
-                    </Info>
-                    <Info>
-                        <InfoTitle>Email</InfoTitle>
-                        <InfoItem>danielmazzini6@gmail.com</InfoItem>
-                    </Info>
-                </InfoContainer>
-                <EditButton>Editar</EditButton>
-            </FeedContainerImg>
-            <H1>Location</H1>
-            <LocationField>
-                <InputLoc placeholder='Insira sua localização'>
-                </InputLoc>
-                <EditButton>Alterar localização</EditButton>
-            </LocationField>
-           
+            <H1>Perfil da empresa parceira</H1>
         </>
     )
 }
 
-export default VolunteerProfile;
+export default EmpresaProfile;
