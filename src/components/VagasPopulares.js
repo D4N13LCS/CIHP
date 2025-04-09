@@ -44,44 +44,6 @@ const ContainerVagas = styled.section`
     padding: 3em;
 `
 
-const Vaga = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    gap: 0.4em;
-    height: fit-content;
-    padding-bottom: 1em;
-    overflow-y: hidden;
-    width: 200px;
-    border: 1px solid #423FA6;
-    border-radius: 10px;
-    box-shadow: 1px 1px 3px -1px black;
-`
-
-const ImgVaga = styled.img`
-    width: 100%;
-    height: 200px;
-    border-radius: 10px 10px 0px 0px;
-`
-
-const InfoVaga  = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 0.4em;
-`
-
-const TitleVaga = styled.h1`
-    text-align: center;
-    color: #8784D9;
-    font-size: 1.15em;
-`
-const DescricaoVaga = styled.p`
-    padding: 10px;
-    text-align: justify;
-    color: black;
-    
-`
-
 const Container = styled.div`
     display: flex;
     justify-content: center;
@@ -93,19 +55,6 @@ const Container = styled.div`
 
 const LinkStyled = styled(Link)`
     text-decoration: none;
-`
-
-const InscricaoButton = styled.button`
-    border: 1px solid #ADAAF0;
-    color: #433EC0;
-    border-radius: 4px;
-    width: 90%;
-    padding: 4px;
-    &:hover{
-        cursor: pointer;
-        background-color: #433EC0;
-        color: white;
-    }
 `
 
 function VagasPopulares(){
@@ -124,21 +73,21 @@ function VagasPopulares(){
                         location="São Gonçalo, RJ"
                         title="Fugir do Tiroteio ao Som de Sweet Dreams"
                         duration="10 horas"
-                        points="1000.15"
+                        text="SWEET DREAMS ARE MADE OF THIS"
                     />
                     <VolunteerCard 
                         imageUrl="https://www.torneiosdexadrez.com.br/wp-content/uploads/2024/06/idoso-jogando-xadrez-na-praca.png"
                         location="Tangua, RJ"
                         title="Jogar Xadrez com Velhos"
                         duration="2 horas"
-                        points="150.00"
+                        text="Ganhe o coração dos velhinhos ou um prêmio em dinheiro"
                     />
                     <VolunteerCard 
                         imageUrl="https://ciclovivo.com.br/wp-content/uploads/2024/05/limpeza-praia-Ortobom-ciclovivo-1024x683.jpg"
                         location="Maricá, RJ"
                         title="Limpeza de Praia"
                         duration="2 horas"
-                        points="450.00"
+                        text="Olá voces são gays? daniel é um viadão monstruoso"
                     />
                 </div>
                 </Container>
