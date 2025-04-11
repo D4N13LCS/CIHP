@@ -3,11 +3,33 @@ import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Div = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden; 
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: url('https://cdn.pixabay.com/photo/2019/11/11/09/40/black-sea-4617810_1280.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(5px);
+        z-index: 0;
+    }
+
+ 
+    & > * {
+        position: relative;
+        z-index: 1;
+    }
+
 `
 
 const Container = styled.div`
@@ -26,11 +48,12 @@ const WelcomeBox = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 0.5em;
-    border-right: 3px solid #B1AEF2;
+    border-right: 3px solid rgb(33, 2, 54);
     padding: 0px 30px;
     padding-bottom: 1em;
-    background-color:rgba(177, 174, 242, 0.29);
+    background-color:rgb(77, 47, 146);
     border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
     @media screen and (max-width:650px){
         border: none;
     }
@@ -38,13 +61,13 @@ const WelcomeBox = styled.div`
 
 const TitleWelcome = styled.h1`
     text-align: center;
-    color: #423FA6;
+    color:rgb(15, 14, 59);
     margin: 0px;
 `
 
 const WelcomeMessage = styled.p`
     text-align: justify;
-    color:  #7C7AAD;
+    color:rgb(27, 26, 59);
 `
 
 const WelcomeImg = styled.img`
@@ -58,12 +81,19 @@ const LoginBox = styled.div`
     align-items: center;
     height: 150px;
     width: 300px; 
+    
 `
 
 const FormLogin = styled.form`
     display: flex;
     flex-direction: column;
     gap: 0.6em;
+    background-color: rgb(177, 174, 242, 0.29);
+    padding: 50px; 
+    border-radius: 8px; 
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    height: 320px;
+    width: 3000px; 
 `
 
 const ContainerCampo = styled.div`
@@ -71,17 +101,18 @@ const ContainerCampo = styled.div`
     justify-content: start;
     align-items: center;
     gap: 15px;
+    
 `
 
 const CampoIcon = styled.span`
     font-size: 30px;
-    color: #8784D9;
+    color:rgb(38, 36, 88);
 `
 const Campo = styled.input`
     padding: 0.3em;
     border-radius: 100px;
     border: none;
-    background-color: #8784D9;
+    background-color:rgb(158, 158, 196);
     color: white;
     &:focus{
         outline: none;
@@ -94,31 +125,33 @@ const Campo = styled.input`
 const FundoCampo = styled.div`
     display: flex;
     align-items: center;
-    background-color: #8784D9;
+    background-color:rgb(158, 158, 196);
     padding: 5px;
     border-radius: 100px;
 `
 
 const Entrar = styled.button`
     justify-self: end;
-    border: 1px solid #B1AEF2;
+    background-color:rgb(38, 26, 107);
+    border: 1px solid rgb(8, 0, 153);
     border-radius: 12px;
     padding: 4px;
-    color:   #7C7AAD;
+    color:rgb(142, 125, 187);
     width: 100%;
     &:hover{
         cursor: pointer;
-        background-color: #423FA6;
-        color: white;
+        background-color:rgb(59, 13, 134);
+        border: 1px solid rgb(52, 8, 94);
+        color: rgb(198, 182, 240);
         font-weight: 600;
     }
 `
 
 const StyledLink = styled(Link)`
     text-decoration: none;
-    color:rgb(200, 198, 245);
+    color:rgb(223, 222, 245);
     &:hover{
-        color: #8784D9;
+        color:rgb(155, 8, 253);
     }
 `
 
@@ -126,7 +159,7 @@ const P = styled.p`
     display: flex;
     gap: 7px;
     margin: 0px;
-    color: #8784D9;
+    color:rgb(40, 28, 94);
 `
 
 function LoginVoluntario(){

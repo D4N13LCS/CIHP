@@ -6,6 +6,7 @@ const Container = styled.div`
     justify-content: center;
     gap: 1em;
     width: 100%;
+    
 `
 
 const WelcomeBox = styled.div`

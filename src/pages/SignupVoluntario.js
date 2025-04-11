@@ -3,11 +3,32 @@ import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Div = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: url('https://cdn.pixabay.com/photo/2019/11/11/09/40/black-sea-4617810_1280.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(5px);
+        z-index: 0;
+    }
+
+    & > * {
+        position: relative;
+        z-index: 1;
+    }
+
 `
 
 const Container = styled.div`
@@ -28,7 +49,7 @@ const WelcomeBox = styled.div`
     gap: 0.5em;
     border-right: 3px solid #B1AEF2;
     padding: 0px 30px;
-    background-color:rgba(177, 174, 242, 0.29);
+    background-color:rgba(0, 0, 0, 0.29);
     border-radius: 8px;
     @media screen and (max-width:650px){
         border: none;
