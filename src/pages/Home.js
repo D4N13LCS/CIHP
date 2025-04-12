@@ -8,7 +8,7 @@ import VagasPopulares from "../components/VagasPopulares";
 function Home(){
     return (
         <>
-            <Navbar opcao1='Sign in' opcao2='Sign Up' opcao3='Causas populares' opcao4='vagas recentes'/>
+            <Navbar />
             <Carousel/>
             <VagasPopulares/>
             <Footer/>
