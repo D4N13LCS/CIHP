@@ -13,6 +13,8 @@ import SignupEmpresa from './pages/SignupEmpresa';
 import SignupONG from './pages/SignupONG';
 import Perfis from './layouts/perfis';
 import EmpresaProfile from './pages/EmpresaProfile';
+import ONGtrabalho from './pages/ONGtrabalho';
+import PublicarVagas from './pages/publicarVagas';
 
 function App() {
   return (
@@ -29,14 +31,16 @@ function App() {
           <Route path='/SignupONG' element={<SignupONG/>}/>
 
 
-          <Route path='/voluntario' element={<Perfis opcao1='Perfil' opcao2='Trabalhos' opcao3='Prêmios recebidos' opcao4='Vagas' rota='/voluntario/'/>}>
+          <Route path='/voluntario' element={<Perfis opcao1='Perfil' opcao2='Trabalhos' opcao3='Prêmios recebidos' opcao4='Vagas' rota='/voluntario/' icons='person,work_history,trophy'/>}>
               <Route index element={<VolunteerProfile />} />
               <Route path='trabalhos' element={<VolunteerTrabalhos />} />
               <Route path='vagas' element={<VagasVolunteerProfile />} />
           </Route> 
           
-          <Route path='/ONG' element={<Perfis opcao1='perfil' opcao2='trabalhos' opcao3='publicar vagas' opcao4='vagas' rota='/ONG/'/>}>
+          <Route path='/ONG' element={<Perfis opcao1='perfil' opcao2='publicar vagas'  opcao3='trabalhos' rota='/ONG/' icons='person,post_add,work_history,'/>}>
               <Route index element={<OngProfile/>}/>
+              <Route path='trabalhos' element={<ONGtrabalho/>} />
+              <Route path='publicar vagas' element={<PublicarVagas/>} />
           </Route>
 
           <Route path='/Empresa' element={<Perfis opcao1='perfil' opcao2='trabalhos' opcao3='prêmios concedidos' opcao4='vagas' rota='/Empresa/'/>}>

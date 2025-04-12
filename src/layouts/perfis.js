@@ -47,10 +47,7 @@ const OpcLateral = styled.li`
     cursor: pointer;
   }
 
-  &.marcados {
-    color: #423fa6;
-    font-weight: bold;
-  }
+ 
 
   span {
     margin-right: ${(props) => (props.showText ? '10px' : '0')};
@@ -148,13 +145,22 @@ const BotaoIcon = styled.span`
   width: 30px;
 `;
 
+const Span = styled.span`
+   &.marcados {
+    color: #CBCBFC;
+    font-weight: bold;
+  }
+`
+
 function Perfis(props) {
   let navigate = useNavigate();
+  const icons = props.icons.split(',')
+  
 
   function MarcarPagina(e) {
     if (e.target.tagName === 'ICON') return;
 
-    const Menu = [...document.querySelector('ul').children];
+    const Menu = [...document.querySelectorAll('ul .opcao .text')];
     Menu.forEach((el) => {
       el.classList.remove('marcados');
     });
@@ -176,29 +182,26 @@ function Perfis(props) {
             <p className='text'>CIHP</p>
           </LogoContainer>
           <MenuLateral>
-            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina 
+            <OpcLateral className="opcao"  showText>
+              <Icon className="material-symbols-outlined">person</Icon>
+              <Span className="text" onClick={(evt) => { MarcarPagina 
             (evt); 
             navigate(props.rota)    
-            }} showText>
-              <Icon className="material-symbols-outlined">person</Icon>
-              <span className="text">{props.opcao1}</span>
+            }}>{props.opcao1}</Span>
             </OpcLateral>
-            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); 
+            <OpcLateral className="opcao" showText>
+              <Icon className="material-symbols-outlined">{icons[1]}</Icon>
+              <Span className="text" onClick={(evt) => { MarcarPagina(evt); 
                 navigate(props.rota + props.opcao2)
-            }} showText>
-              <Icon className="material-symbols-outlined">work_history</Icon>
-              <span className="text">{props.opcao2}</span>
+            }}>{props.opcao2}</Span>
             </OpcLateral>
-            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); 
-                navigate( props.rota + props.opcao4)
-            }} showText>
-              <Icon className="material-symbols-outlined">trophy</Icon>
-              <span className="text">{props.opcao3}</span>
+            <OpcLateral className="opcao" showText>
+              <Icon className="material-symbols-outlined">{icons[2]}</Icon>
+              <Span className="text" onClick={(evt) => { MarcarPagina(evt); 
+                navigate( props.rota + props.opcao3)
+            }}>{props.opcao3}</Span>
             </OpcLateral>
-            <OpcLateral className="opcao" onClick={(evt) => { MarcarPagina(evt); }} showText>
-              <Icon className="material-symbols-outlined">badge</Icon>
-              <span className="text">{props.opcao4}</span>
-            </OpcLateral>
+            
           </MenuLateral>
           <ContainerBotao>
             <Botao onClick={() => { Logout(); }}>
