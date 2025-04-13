@@ -51,7 +51,6 @@ const Div = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    
     padding: 2.5em 0em 4em 0em;
 `
 
@@ -95,6 +94,7 @@ function VolunteerProfile(){
                 
             </FeedContainerImg>
             <Div>
+            
             <InfoContainer>
                 <Status trabalhos='20' horas='100' bairros='5'/>
                 <H1>Trabalhos concluídos</H1>

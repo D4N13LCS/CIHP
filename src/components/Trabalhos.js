@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {useState, useEffect} from 'react';
+import VolunteerCards from './VolunteerCards'
 
 const images = [
     require('../assets/IMGS/cardImage1.jpg'),
@@ -30,6 +31,7 @@ const ContainerCards = styled.div`
 `
 
 const Div = styled.div`
+
     // width: 1000px;
     // overflow: hidden;
 `
@@ -78,8 +80,8 @@ const CardIcon = styled.span`
 
 function Trabalhos(){
     
-    const [itens, setItens] = useState(6);
-    const [limite, setLimite] = useState(6);
+    const [itens, setItens] = useState(4);
+    const [limite, setLimite] = useState(4);
 
     function avancar(){
         itens >= images.length? setItens(limite): setItens(itens+limite)
@@ -100,23 +102,23 @@ function Trabalhos(){
             setLimite(1)
         }
         else if ('651'<= window.innerWidth & window.innerWidth <= '900'){
+            setItens(1)
+            setLimite(1)
+        }
+        else if ('901' <= window.innerWidth & window.innerWidth <= '1100'){
             setItens(2)
             setLimite(2)
         }
-        else if ('901' <= window.innerWidth & window.innerWidth <= '1100'){
+        else if('1101' <= window.innerWidth & window.innerWidth <= '1350'){
             setItens(3)
             setLimite(3)
         }
-        else if('1101' <= window.innerWidth & window.innerWidth <= '1350'){
+        else if ('1351' <= window.innerWidth & window.innerWidth<= '1500'){
+            setItens(3)
+            setLimite(3)
+        }else{
             setItens(4)
             setLimite(4)
-        }
-        else if ('1351' <= window.innerWidth & window.innerWidth<= '1500'){
-            setItens(5)
-            setLimite(5)
-        }else{
-            setItens(6)
-            setLimite(6)
         }
 
     }
@@ -144,24 +146,7 @@ function Trabalhos(){
                 <ContainerCards className='cardsContainer'>
                     
                     {images.slice(itens-limite, itens).map((el, i)=>{
-                        return <Card key={i}>
-                        <CardImage src={el} />
-                        <CardTitle>Título {i + 1}</CardTitle>
-                        <CardDescription>
-                            <CardInfo>
-                                <CardIcon className='material-symbols-outlined'>
-                                    location_on
-                                </CardIcon>
-                                Maricá - RJ
-                            </CardInfo>
-                            <CardInfo>
-                                <CardIcon className='material-symbols-outlined'>
-                                    category
-                                </CardIcon>
-                                categoria {i + 1}
-                            </CardInfo>
-                        </CardDescription>
-                    </Card>
+                        return <VolunteerCards key={1} imageUrl={el} location='Maricá - RJ' title={`Título ${i + 1}`} duration={`${i + 1} horas`} text={`Lorem ipsum dolor sit amet. Aut quia expedita sed exercitationem sequi qui atque voluptatem. Et aliquam quia sed necessitatibus totam et deserunt asperiores eum facilis quia non nemo esse.`}/>
                     })}
                     
                 </ContainerCards>
