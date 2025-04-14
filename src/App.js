@@ -29,17 +29,17 @@ function App() {
           <Route path='/SignupVoluntario' element={<SignupVoluntario/>}/>
           <Route path='/SignupEmpresa' element={<SignupEmpresa/>}/>
           <Route path='/SignupONG' element={<SignupONG/>}/>
+          <Route path='/vagas' element={<VagasVolunteerProfile/>}/>
 
 
           <Route path='/voluntario' element={<Perfis opcao1='Perfil' opcao2='Trabalhos' opcao3='Prêmios recebidos' opcao4='Vagas' rota='/voluntario/' icons='person,work_history,trophy'/>}>
               <Route index element={<VolunteerProfile />} />
-              <Route path='trabalhos' element={<VolunteerTrabalhos />} />
-              <Route path='vagas' element={<VagasVolunteerProfile />} />
+              <Route path='trabalhos' element={<VolunteerTrabalhos rota='voluntario'/>} />
           </Route> 
           
           <Route path='/ONG' element={<Perfis opcao1='perfil' opcao2='publicar vagas'  opcao3='trabalhos' rota='/ONG/' icons='person,post_add,work_history,'/>}>
               <Route index element={<OngProfile/>}/>
-              <Route path='trabalhos' element={<ONGtrabalho/>} />
+              <Route path='trabalhos'  element={<ONGtrabalho rota='ONG'/>} />
               <Route path='publicar vagas' element={<PublicarVagas/>} />
           </Route>
 

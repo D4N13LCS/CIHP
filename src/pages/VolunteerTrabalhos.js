@@ -83,7 +83,7 @@ const H1 = styled.h1`
     }
 `
 
-function VolunteerProfile(){
+function VolunteerTrabalhos({rota}){
 
     return (
         <>
@@ -99,7 +99,7 @@ function VolunteerProfile(){
                 <Status trabalhos='20' horas='100' bairros='5'/>
                 <H1>Trabalhos concluídos</H1>
                 <Info>
-                    <Trabalhos/>
+                    <Trabalhos rota={rota}/>
                 </Info>
                 <H1>Trabalhos em andamento</H1>
                 <Info>
@@ -115,4 +115,4 @@ function VolunteerProfile(){
     )
 }
 
-export default VolunteerProfile;
+export default VolunteerTrabalhos;

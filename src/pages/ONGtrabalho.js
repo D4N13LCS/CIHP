@@ -86,7 +86,7 @@ const H1 = styled.h1`
     }
 `
 
-function ONGtrabalho(){
+function ONGtrabalho({rota}){
 
     return (
         <>
@@ -99,14 +99,14 @@ function ONGtrabalho(){
             <Div>
             <InfoContainer>
     
-                <H1>Trabalhos concluídos</H1>
+                <H1>Trabalhos publicados</H1>
+                <Info>
+                    <Trabalhos rota={rota}/>
+                </Info>
+                {/* <H1>Trabalhos em andamento</H1>
                 <Info>
                     <Trabalhos/>
-                </Info>
-                <H1>Trabalhos em andamento</H1>
-                <Info>
-                    <Trabalhos/>
-                </Info>
+                </Info> */}
                 
 
             </InfoContainer>

@@ -31,7 +31,8 @@ const ContainerCards = styled.div`
 `
 
 const Div = styled.div`
-
+    display: flex;
+    flex-direction: column;
     // width: 1000px;
     // overflow: hidden;
 `
@@ -78,7 +79,9 @@ const CardIcon = styled.span`
     font-size: 18px;
 `
 
-function Trabalhos(){
+
+
+function Trabalhos({rota}){
     
     const [itens, setItens] = useState(4);
     const [limite, setLimite] = useState(4);
@@ -146,7 +149,7 @@ function Trabalhos(){
                 <ContainerCards className='cardsContainer'>
                     
                     {images.slice(itens-limite, itens).map((el, i)=>{
-                        return <VolunteerCards key={1} imageUrl={el} location='Maricá - RJ' title={`Título ${i + 1}`} duration={`${i + 1} horas`} text={`Lorem ipsum dolor sit amet. Aut quia expedita sed exercitationem sequi qui atque voluptatem. Et aliquam quia sed necessitatibus totam et deserunt asperiores eum facilis quia non nemo esse.`}/>
+                        return  <VolunteerCards key={1} rota={rota} imageUrl={el} location='Maricá - RJ' title={`Título ${i + 1}`} duration={`${i + 1} horas`} text={`Lorem ipsum dolor sit amet. Aut quia expedita sed exercitationem sequi qui atque voluptatem. Et aliquam quia sed necessitatibus totam et deserunt asperiores eum facilis quia non nemo esse.`}/> 
                     })}
                     
                 </ContainerCards>
