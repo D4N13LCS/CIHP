@@ -3,7 +3,6 @@ import { Card } from "react-bootstrap";
 import { FaRegClock } from "react-icons/fa";
 import styled from 'styled-components'
 
-
 const CardButton = styled.button`
     display: flex;
     align-items: center;
@@ -23,6 +22,8 @@ const CardButton = styled.button`
 `
 
 const VolunteerCard = ({imageUrl, location, title, duration, text, rota}) => {
+    
+
 
     function mostrar_botao(){
             if (rota === 'voluntario'){

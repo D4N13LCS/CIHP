@@ -87,12 +87,7 @@ function VolunteerTrabalhos({rota}){
 
     return (
         <>
-            <FeedContainerImg>
-                <FundoImg>
-                    <FeedImg src='https://cdn-icons-png.flaticon.com/512/10542/10542486.png'/>
-                </FundoImg>
-                
-            </FeedContainerImg>
+            
             <Div>
             
             <InfoContainer>

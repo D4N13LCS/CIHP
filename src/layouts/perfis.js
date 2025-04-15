@@ -97,6 +97,14 @@ const FeedContainer = styled.div`
   height: 100%;
   margin: 0 auto;
   padding-left: 45px;
+
+  &.variant{
+    padding-top: 1.5em;
+  }
+
+  @media screen and (max-width: 501px){
+    padding-left: 30px;
+  }
 `;
 
 const Icon = styled.span`
@@ -150,6 +158,38 @@ const Span = styled.span`
     color: #CBCBFC;
     font-weight: bold;
   }
+`
+
+const FeedContainerImg = styled.section`
+    display: flex;
+    align-items: center;
+    justify-content: end; 
+    gap: 2em;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    // border-bottom: 2px solid #E1E0F4;
+    background-color: #6941C6;
+`
+
+const FundoImg = styled.div`
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    
+    background-image: url("https://wallpapers.com/images/hd/camera-icon-simple-black-1gsn4ep2gufyauuq.jpg");
+    background-position: center;
+    bakcground-repeat: no-repeat;
+    background-size: cover; 
+`
+
+const FeedImg = styled.img`
+    height: 32px;
+    width: 32px;
+    position: relative;
+    &:hover{
+        cursor:pointer;
+    }
 `
 
 function Perfis(props) {
@@ -215,8 +255,17 @@ function Perfis(props) {
           </ContainerBotao>
         </SideBar>
         <FeedContainer>
-          <Outlet />
+            <FeedContainerImg>
+                <FundoImg>
+                    <FeedImg src='https://cdn-icons-png.flaticon.com/512/10542/10542486.png'/>
+                </FundoImg>
+                
+            </FeedContainerImg>
+            <FeedContainer className='variant'>
+              <Outlet />
+            </FeedContainer>
         </FeedContainer>
+        
       </Main>
     </>
   );

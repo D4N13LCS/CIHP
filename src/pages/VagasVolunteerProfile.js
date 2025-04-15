@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, Button, Form, InputGroup } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import { Heart, Search } from "react-feather";
+import { useNavigate } from "react-router-dom";
 
 const jobCategories = ["Todas", "Educação", "Saúde", "Meio Ambiente", "Cultura"];
 const jobs = [
@@ -32,9 +33,16 @@ const jobs = [
 ];
 
 const FullVagas = () => {
+
+  const navigate = useNavigate()
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Todas");
   const [favorites, setFavorites] = useState([]);
+
+  const Inscrever = (e)=>{
+    navigate('/Inscricao', {state: {id: e.id, titulo: e.title, location: e.location, categoria: e.category, descricao: e.description, imagem: e.image}})
+
+  }
 
   const toggleFavorite = (id) => {
     setFavorites((prevFavorites) =>
@@ -103,7 +111,7 @@ const FullVagas = () => {
                 <Card.Text>
                   <small className="text-muted">{job.location}</small>
                 </Card.Text>
-                <Button variant="primary">Saiba Mais</Button>
+                <Button variant="primary" onClick={()=>{Inscrever(job)}}>Saiba Mais</Button>
               </Card.Body>
             </Card>
           </div>

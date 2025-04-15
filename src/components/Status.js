@@ -46,6 +46,26 @@ const EstatiscaFilterContainer = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
+
+    @media screen and (max-width: 360px){
+    
+    }
+    @media screen and (min-width: 361px) and (max-width: 500px){
+        width: 80%;
+    }
+    @media screen and (min-width: 501px) and (max-width: 768px){
+        
+    }
+    @media screen and (min-width: 769px) and (max-width: 1024px){
+        
+       
+    }
+    @media screen and (min-width: 1025px) and (max-width: 1300px){
+    
+    }
+    @media screen and (min-width: 1301px){
+
+    }
 `
 
 const EstatiscaFilter = styled.select`
@@ -59,7 +79,7 @@ const EstatiscaFilter = styled.select`
     
     }
     @media screen and (min-width: 361px) and (max-width: 500px){
-        
+        width: 80%;
     }
     @media screen and (min-width: 501px) and (max-width: 768px){
         

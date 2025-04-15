@@ -4,8 +4,6 @@ const ProfileContainer =  styled.div`
     display: flex;
     align-items: center;
     gap: 2em;
-
-    
 `
 
 const FeedContainerImg = styled.section`
@@ -29,6 +27,7 @@ const FeedContainerImg = styled.section`
         justify-content: start; 
     }
     @media screen and (min-width: 501px) and (max-width: 768px){
+        gap: 0.6em;
         
     }
     @media screen and (min-width: 769px) and (max-width: 1024px){
@@ -184,13 +183,16 @@ const EditButton = styled.button`
     @media screen and (max-width: 360px){
         height: 25px;
         font-size: 0.8em; 
+        width: 100%;
     }
     @media screen and (min-width: 361px) and (max-width: 500px){
         height: 28px;
         font-size: 0.8em; 
+        width: 100%;
     }
     @media screen and (min-width: 501px) and (max-width: 768px){
-        
+        height: 30px;
+        font-size: 0.85em; 
     }
     @media screen and (min-width: 769px) and (max-width: 1024px){
         
@@ -221,7 +223,7 @@ const LocationField = styled.div`
         width: 290px;
     }
     @media screen and (min-width: 501px) and (max-width: 768px){
-        width: 400px;
+        width: 380px;
     }
     @media screen and (min-width: 769px) and (max-width: 1024px){
         
