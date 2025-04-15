@@ -4,7 +4,7 @@ import { FaRegClock } from "react-icons/fa";
 
 const VolunteerCard = ({ imageUrl, location, title, duration, text }) => {
     return (
-        <Card className="shadow-sm border-0 rounded-4 " style={{ width: '18rem', backgroundColor: '#ede7f6' }}>
+        <Card className="shadow-sm border-0 rounded-4 " style={{ width: '18rem', backgroundColor: '#ede7f6'}}>
             <Card.Img variant="top" src={imageUrl} style={{height: '13rem'}} />
             <Card.Body className="p-2.5">
                 <span className="badge bg-success text-white mb-2">{location}</span>

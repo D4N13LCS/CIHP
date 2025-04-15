@@ -10,11 +10,20 @@ const TitleContainer = styled.div`
     align-items: center;
     box-shadow: 1px 5px 10px -8px black;
     padding: 20px 0px;
+
+    @media screen and (max-width: 400px){
+        font-size:11px;
+    }
+    
 `
 
 const Title = styled.h1`
     color: #8784D9;
-    
+
+    @media screen and (max-width: 400px){
+        font-size:18px;
+    }
+     
 `
 
 const Setinha = styled.div`
@@ -42,6 +51,7 @@ const ContainerVagas = styled.section`
     flex-wrap: wrap;
     gap: 1em;
     padding: 3em;
+    
 `
 
 const Container = styled.div`
@@ -51,10 +61,12 @@ const Container = styled.div`
     gap: 1em;
     margin-top: 3em;
     width: 100%;
+    
 `
 
 const LinkStyled = styled(Link)`
     text-decoration: none;
+    
 `
 
 function VagasPopulares(){
@@ -67,7 +79,7 @@ function VagasPopulares(){
                 <Searchbar/>
                 <Filter/>
                 <Container className='d-flex flex-wrap gap-5'>
-                <div className="d-flex flex-wrap gap-5">
+                <div className="d-flex flex-wrap gap-5 d-flex justify-content-center ">
                     <VolunteerCard 
                         imageUrl="https://cdn.atarde.com.br/img/Artigo-Destaque/1300000/1200x675/Passageiros-se-jogam-no-chao-de-onibus-para-fugir-0130697600202502121442-9.webp?fallback=https%3A%2F%2Fcdn.atarde.com.br%2Fimg%2FArtigo-Destaque%2F1300000%2FPassageiros-se-jogam-no-chao-de-onibus-para-fugir-0130697600202502121442.png%3Fxid%3D6553913&xid=6553913"
                         location="São Gonçalo, RJ"
@@ -87,7 +99,7 @@ function VagasPopulares(){
                         location="Maricá, RJ"
                         title="Limpeza de Praia"
                         duration="2 horas"
-                        text="Olá voces são gays? daniel é um viadão monstruoso"
+                        text="Ajude na limpeza da praia, e ganhe pontos."
                     />
                 </div>
                 </Container>

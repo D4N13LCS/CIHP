@@ -27,11 +27,13 @@ const Seta = styled.span`
 const ContainerCards = styled.div`
     display: flex;
     gap: 2em;
+
 `
 
 const Div = styled.div`
     // width: 1000px;
     // overflow: hidden;
+    
 `
 
 const Card = styled.div`

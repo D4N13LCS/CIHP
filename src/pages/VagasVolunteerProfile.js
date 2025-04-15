@@ -56,7 +56,7 @@ const FullVagas = () => {
         <h2 style={{ color: "#4a148c", fontWeight: "bold", fontFamily: "Merriweather, serif" }}>
           Vagas de Voluntariado
         </h2>
-        <InputGroup style={{ width: "30%", border: "2px solid #ccc", borderRadius: "8px" }}>
+        <InputGroup className="w-100 w-md-50 w-lg-30" style={{ maxWidth: "400px", border: "2px solid #ccc", borderRadius: "8px" }}>
           <Form.Control
             type="text"
             placeholder="Buscar vagas..."
@@ -70,7 +70,7 @@ const FullVagas = () => {
       </div>
       
 
-      <div className="d-flex justify-content-start mb-4">
+      <div className="d-flex justify-content-start mb-4 flex-wrap gap-2">
         {jobCategories.map((category) => (
           <Button
             key={category}
@@ -86,8 +86,8 @@ const FullVagas = () => {
       
       <div className="row justify-content-center">
         {filteredJobs.map((job) => (
-          <div key={job.id} className="col-md-4 mb-4">
-            <Card className="shadow-sm position-relative" style={{ borderRadius: "12px", width: "100%" }}>
+          <div key={job.id} className="col-12 col-sm-6 col-md-4 mb-4 d-flex">
+            <Card className="shadow-sm position-relative w-100" style={{ borderRadius: "12px"}}>
               <button 
                 className="position-absolute top-0 end-0 m-2 btn btn-light rounded-circle" 
                 onClick={() => toggleFavorite(job.id)}
