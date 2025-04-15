@@ -4,6 +4,8 @@ import { useState } from 'react';
 const FilterIconContainer = styled.div`
     display: flex;
     align-items: center;
+    
+
 `
 
 const FilterIcon = styled.span`
@@ -30,6 +32,7 @@ const OpcoesContainer = styled.div`
     display: none;
     justify-content: center;
     width: 100%;
+    
 `
 
 const OpcoesSelect = styled.form`
@@ -135,7 +138,7 @@ function Filter(){
                     
                 })}
                 </OpcaoCategoria>
-                <Aplicar>Aplicar filtro</Aplicar>
+                <Aplicar>Aplicar</Aplicar>
             </OpcoesSelect>
         </OpcoesContainer>
         </>

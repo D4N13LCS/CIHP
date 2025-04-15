@@ -12,7 +12,7 @@ const StyledLink = styled(Link)`
 
 function Footer(){
     return(
-        <footer className="f-color text-light pt-5 pb-3" style={{backgroundColor: "#423FA6"}}>
+        <footer className="f-color text-light pt-5 pb-3 " style={{backgroundColor: "#423FA6"}}>
         <div className="container">
         <div className="row">
         <div className="col-md-2 mb-3">
@@ -33,6 +33,7 @@ function Footer(){
             <li className="nav-item mb-2"><StyledLink to="#">Cursos</StyledLink></li>
             <li className="nav-item mb-2"><StyledLink to="#">Eventos</StyledLink></li>
             <li className="nav-item mb-2"><StyledLink to="#">Parcerias</StyledLink></li>
+            <li className="nav-item mb-2"><StyledLink to="/LoginInstituicao">Para Instituições</StyledLink></li>
             </ul>
         </div>
 

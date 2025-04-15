@@ -188,6 +188,7 @@ const EditButton = styled.button`
     @media screen and (min-width: 361px) and (max-width: 500px){
         height: 28px;
         font-size: 0.8em; 
+        width: 100%;
     }
     @media screen and (min-width: 501px) and (max-width: 768px){
         
@@ -340,7 +341,7 @@ function VolunteerProfile(){
                 <TextAreaContainer>
                     <H1andH2area>
                         <H1>Objetivo</H1>
-                        <H2>Objetivo da ONG</H2>
+                        <H2>Objetivo da instituição</H2>
                     </H1andH2area>
                     <TextArea placeholder='Escreva sua bio aqui...' />
                 </TextAreaContainer>

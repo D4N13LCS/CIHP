@@ -8,6 +8,10 @@ const SearchDiv = styled.div`
     width: 50%;
     padding: 10px;
     border-radius: 100px;
+
+    @media screen and (max-width: 400px){
+        height:50px;
+    }
 `
 
 const SearchField = styled.input`

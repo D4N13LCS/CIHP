@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Navbar, Nav, Button, Container } from "react-bootstrap";
 import { Search } from "lucide-react";
 import logo from '../assets/IMGS/LogoPNG.png';
@@ -13,6 +14,7 @@ const Img = styled.img`
 
 
 const NavigationBar = () => {
+
   return (
     <Navbar expand="lg" className="shadow-sm bg-light fixed-top">
       <Container>
@@ -20,6 +22,8 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+            <Nav.Link href="/LoginVoluntario" className="font-weight-bold text-dark">Login</Nav.Link>
+            <Nav.Link href="/SignUpVoluntario" className="font-weight-bold text-dark">Sign Up</Nav.Link>
             <Nav.Link href="#" className="font-weight-bold text-dark">Causas Populares</Nav.Link>
             <Nav.Link href="#" className="font-weight-bold text-dark">Vagas Recentes </Nav.Link>
             <Nav.Link href="#" className="text-dark">Empresas Cadastradas</Nav.Link>

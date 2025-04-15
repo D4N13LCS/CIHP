@@ -16,6 +16,7 @@ import EmpresaProfile from './pages/EmpresaProfile';
 import ONGtrabalho from './pages/ONGtrabalho';
 import PublicarVagas from './pages/publicarVagas';
 import PaginaInscricao from './pages/PaginaInscricao';
+import EmpresaTrabalho from './pages/EmpresaTrabalho';
 
 function App() {
   return (
@@ -25,11 +26,9 @@ function App() {
           <Route path='/' element={<Home/>}/>
                    
           <Route path='/LoginVoluntario' element={<LoginVoluntario/>}/>
-          <Route path='/LoginEmpresa' element={<LoginEmpresa/>}/>
-          <Route path='/LoginONG' element={<LoginONG/>}/>
+          <Route path='/LoginInstituicao' element={<LoginEmpresa/>}/>
           <Route path='/SignupVoluntario' element={<SignupVoluntario/>}/>
-          <Route path='/SignupEmpresa' element={<SignupEmpresa/>}/>
-          <Route path='/SignupONG' element={<SignupONG/>}/>
+          <Route path='/SignupInstituicao' element={<SignupEmpresa/>}/>
           <Route path='/vagas' element={<VagasVolunteerProfile/>}/>
           <Route path='/Inscricao' element={<PaginaInscricao/>}/>
 
@@ -38,14 +37,10 @@ function App() {
               <Route path='trabalhos' element={<VolunteerTrabalhos rota='voluntario'/>} />
           </Route> 
           
-          <Route path='/ONG' element={<Perfis opcao1='perfil' opcao2='publicar vagas'  opcao3='trabalhos' rota='/ONG/' icons='person,post_add,work_history,'/>}>
+          <Route path='/Instituicao' element={<Perfis opcao1='perfil' opcao2='publicar vagas'  opcao3='trabalhos' rota='/Instituicao/' icons='person,post_add,work_history,'/>}>
               <Route index element={<OngProfile/>}/>
-              <Route path='trabalhos'  element={<ONGtrabalho rota='ONG'/>} />
+              <Route path='trabalhos'  element={<ONGtrabalho rota='Instituicao'/>} />
               <Route path='publicar vagas' element={<PublicarVagas/>} />
-          </Route>
-
-          <Route path='/Empresa' element={<Perfis opcao1='perfil' opcao2='trabalhos' opcao3='prêmios concedidos' opcao4='vagas' rota='/Empresa/'/>}>
-              <Route index element={<EmpresaProfile/>}/>
           </Route>
 
         </Routes>

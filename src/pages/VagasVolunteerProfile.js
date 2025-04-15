@@ -24,11 +24,11 @@ const jobs = [
   },
   {
     id: 3,
-    title: "Daniel Yag",
+    title: "Reciclagem",
     category: "Meio Ambiente",
     location: "Maricá, RJ",
-    description: "Auxilie o yag nos dando 10.",
-    image: "https://media-gig4-2.cdn.whatsapp.net/v/t61.24694-24/464537568_1968450000303545_793351668498106864_n.jpg?ccb=11-4&oh=01_Q5AaIQMx6ybSbKDr8fdIHCAhQ9rK24LnYUuMnBn35wIYTrFf&oe=67F9586F&_nc_sid=5e03e0&_nc_cat=101"
+    description: "Auxilie na coleta seletiva.",
+    image: "https://img.freepik.com/vetores-gratis/fundo-de-estilo-de-papel-do-dia-mundial-do-meio-ambiente_23-2149394152.jpg?t=st=1744737514~exp=1744741114~hmac=b4ab1b0aa0773ecfb9c6e4ed74c2368e9390d3c4c8bcf8d18f5a13481c01991d&w=996"
   }
 ];
 
@@ -65,7 +65,7 @@ const FullVagas = () => {
         <h2 style={{ color: "#4a148c", fontWeight: "bold", fontFamily: "Merriweather, serif" }}>
           Vagas de Voluntariado
         </h2>
-        <InputGroup style={{ width: "30%", border: "2px solid #ccc", borderRadius: "8px" }}>
+        <InputGroup className="w-100 w-md-50 w-lg-30" style={{ maxWidth: "400px", border: "2px solid #ccc", borderRadius: "8px" }}>
           <Form.Control
             type="text"
             placeholder="Buscar vagas..."
@@ -79,7 +79,7 @@ const FullVagas = () => {
       </div>
       
 
-      <div className="d-flex justify-content-start mb-4">
+      <div className="d-flex justify-content-start mb-4 flex-wrap gap-2">
         {jobCategories.map((category) => (
           <Button
             key={category}
@@ -95,8 +95,8 @@ const FullVagas = () => {
       
       <div className="row justify-content-center">
         {filteredJobs.map((job) => (
-          <div key={job.id} className="col-md-4 mb-4">
-            <Card className="shadow-sm position-relative" style={{ borderRadius: "12px", width: "100%" }}>
+          <div key={job.id} className="col-12 col-sm-6 col-md-4 mb-4 d-flex">
+            <Card className="shadow-sm position-relative w-100" style={{ borderRadius: "12px"}}>
               <button 
                 className="position-absolute top-0 end-0 m-2 btn btn-light rounded-circle" 
                 onClick={() => toggleFavorite(job.id)}
@@ -111,7 +111,7 @@ const FullVagas = () => {
                 <Card.Text>
                   <small className="text-muted">{job.location}</small>
                 </Card.Text>
-                <Button variant="primary" onClick={()=>{Inscrever(job)}}>Saiba Mais</Button>
+                <Button variant="primary" onClick={()=>{Inscrever(job)}}>Inscrever-se</Button>
               </Card.Body>
             </Card>
           </div>

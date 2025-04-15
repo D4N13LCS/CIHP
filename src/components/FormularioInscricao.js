@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const BannerContainer = styled.div`
     display: flex;
@@ -70,15 +71,24 @@ const BannerDiscription = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 1em;
-    padding: 1em 2.5em;
+
+    @media(max-width: 360px){
+        
+    }
+    @media (min-width: 361px) AND (max-width: 500px){
+        padding: 1em 2.5em;
+    }
 `
 
 const BannerTitle = styled.h1`
+    width: 100%;
     @media(max-width: 360px){
         font-size: 1em;
+        width: 100%;
     }
     @media (min-width: 361px) AND (max-width: 500px){
         font-size: 1.2em;
+        width: 100%;
     }
     @media (min-width: 501px) AND (max-width: 768px){
         font-size: 1.4em;
@@ -188,8 +198,8 @@ const FormsCampo = styled.input`
     border-radius: 4px;
     &:focus{ 
         outline: none;
-        border: 1px solid var(--cor4);
-        box-shadow: 0px 0px 3.5px 0px var(--cor4);
+        border: 1px solid #4A148C;
+        box-shadow: 0px 0px 3.5px 0px #4A148C;
     }
 
     @media(max-width: 360px){
@@ -216,7 +226,7 @@ const Button = styled.button`
     width: 34em;
     &:hover{
         cursor: pointer;
-        background-color: var(--cor4);
+        background-color: #4A148C;
     }
     
     @media(max-width: 360px){
@@ -236,28 +246,31 @@ const Button = styled.button`
 
 function FormInscricao(props){
 
-    async function enviar_inscricao(){
-    
-        const email = document.getElementById('email').value;
-        const nome = document.getElementById('nome').value;
-        const cpf = document.getElementById('cpf').value;
-        const data = document.getElementById('data').innerHTML;
-        const localidade = document.getElementById('localidade').innerHTML;
-        
-        
-        try {
-            const response = await fetch("http://localhost:3000/eventos/enviarConfirmacao", {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({id_evento: props.id_evento, titulo: props.nome, data: data, email: email, nome: nome, cpf: cpf, localidade: localidade}),
-                
-            });
+    const navigate = useNavigate()
 
-            const info = await response.json();
-            alert(info.message);
-        } catch (error) {
-            console.log(error);
-        }
+    async function enviar_inscricao(){
+        alert('Inscrição realizada com sucesso!')
+        navigate('/vagas')
+        // const email = document.getElementById('email').value;
+        // const nome = document.getElementById('nome').value;
+        // const cpf = document.getElementById('cpf').value;
+        // const data = document.getElementById('data').innerHTML;
+        // const localidade = document.getElementById('localidade').innerHTML;
+        
+        
+        // try {
+        //     const response = await fetch("http://localhost:3000/eventos/enviarConfirmacao", {
+        //         method: 'POST',
+        //         headers: {'Content-Type': 'application/json'},
+        //         body: JSON.stringify({id_evento: props.id_evento, titulo: props.nome, data: data, email: email, nome: nome, cpf: cpf, localidade: localidade}),
+                
+        //     });
+
+        //     const info = await response.json();
+        //     alert(info.message);
+        // } catch (error) {
+        //     console.log(error);
+        // }
 
     }
 
@@ -294,7 +307,7 @@ function FormInscricao(props){
                     </CamposContainer>
                     <Button onClick={(evt)=>{
                         evt.preventDefault();
-                        // enviar_inscricao();
+                        enviar_inscricao();
                         }}>Realizar inscrição</Button>
                 </Forms>
             </FormContainer>

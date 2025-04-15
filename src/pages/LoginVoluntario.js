@@ -9,7 +9,7 @@ const Div = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden; 
+    overflow: hidden;
 
     &::before {
         content: '';
@@ -24,172 +24,211 @@ const Div = styled.div`
         z-index: 0;
     }
 
- 
     & > * {
         position: relative;
         z-index: 1;
     }
-
-`
+`;
 
 const Container = styled.div`
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 2em;
-    @media screen and (max-width:650px){
+    
+    @media screen and (max-width: 650px) {
         flex-direction: column;
     }
-`
+`;
+
+// Usei de base, dps so utilizei pra aplicarnas onde queria
+const Estilizado = `
+    display: flex;
+    justify-content: center;
+    min-height: 330px;
+    width: 90%;
+    max-width: 400px;
+    background-color: rgb(77, 47, 146);
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+`;
 
 const WelcomeBox = styled.div`
-    displaY: flex;
+    ${Estilizado}
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5em;
+    padding: 20px 10px;
     border-right: 3px solid rgb(33, 2, 54);
-    padding: 0px 30px;
-    padding-bottom: 1em;
-    background-color:rgb(77, 47, 146);
-    border-radius: 8px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-    @media screen and (max-width:650px){
+    
+    @media screen and (max-width: 768px){
         border: none;
+        width: 330px;
     }
-`
+`;
 
 const TitleWelcome = styled.h1`
     text-align: center;
-    color:rgb(15, 14, 59);
+    color: rgb(15, 14, 59);
     margin: 0px;
-`
+    font-size: 30px;
+`;
 
 const WelcomeMessage = styled.p`
     text-align: justify;
-    color:rgb(27, 26, 59);
-`
+    color: rgb(27, 26, 59);
+`;
 
 const WelcomeImg = styled.img`
-    width: 200px;
-    height: 200px;
-`
-
-const LoginBox = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 150px;
-    width: 300px; 
-    
-`
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+`;
 
 const FormLogin = styled.form`
+    ${Estilizado}
     display: flex;
     flex-direction: column;
+    
     gap: 0.6em;
+    padding: 20px;
     background-color: rgb(177, 174, 242, 0.29);
-    padding: 50px; 
-    border-radius: 8px; 
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-    height: 320px;
-    width: 3000px; 
-`
+    // width: 330px;
+
+    @media screen and (max-width: 768px){
+        width: fit-content;
+    }
+`;
 
 const ContainerCampo = styled.div`
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 15px;
+
+    @media screen and (max-width: 500px) {
+    // align-items: flex-start;
+}
     
-`
+`;
 
 const CampoIcon = styled.span`
     font-size: 30px;
-    color:rgb(38, 36, 88);
-`
+    color: rgb(38, 36, 88);
+`;
+
 const Campo = styled.input`
     padding: 0.3em;
     border-radius: 100px;
-    border: none;
-    background-color:rgb(158, 158, 196);
+    border: 2px solid rgb(50, 34, 73); 
+    background-color: rgb(173, 159, 185, 0.70);
     color: white;
-    &:focus{
+
+    &:focus {
         outline: none;
+        border-color:rgb(69, 51, 129);
+        
+        
     }
-    &::placeholder{
-        color: white;
+
+    &::placeholder {
+        color: rgb(209, 204, 219);
     }
 `
 
 const FundoCampo = styled.div`
     display: flex;
     align-items: center;
-    background-color:rgb(158, 158, 196);
+    
     padding: 5px;
-    border-radius: 100px;
-`
+    border-radius: 30px;
+`;
 
 const Entrar = styled.button`
     justify-self: end;
-    background-color:rgb(38, 26, 107);
+    background-color: rgb(38, 26, 107);
     border: 1px solid rgb(8, 0, 153);
     border-radius: 12px;
     padding: 4px;
-    color:rgb(142, 125, 187);
-    width: 100%;
-    &:hover{
+    color: rgb(142, 125, 187);
+    // width: 80%;
+    &:hover {
         cursor: pointer;
-        background-color:rgb(59, 13, 134);
+        background-color: rgb(59, 13, 134);
         border: 1px solid rgb(52, 8, 94);
         color: rgb(198, 182, 240);
         font-weight: 600;
     }
-`
+
+    @media screen and (max-width: 500px) {
+    width: 100%;
+}
+
+`;
 
 const StyledLink = styled(Link)`
     text-decoration: none;
-    color:rgb(223, 222, 245);
-    &:hover{
-        color:rgb(155, 8, 253);
+    color: rgb(223, 222, 245);
+    text-decoration: underline;
+    &:hover {
+        color: rgb(155, 8, 253);
     }
-`
+`;
 
 const P = styled.p`
     display: flex;
     gap: 7px;
     margin: 0px;
-    color:rgb(40, 28, 94);
+    
+    color: rgb(40, 28, 94);
+`;
+
+const PreferencesCheck = styled.input`
+    
+    
+`
+const CheckLabel = styled.label`
+    color: rgb(67, 54, 126);
+    font-size: 14px;  
+     
 `
 
-function LoginVoluntario(){
+const PreferencesCampo = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    ;
+    
+`
+
+function LoginVoluntario() {
     const [olho, setOlho] = useState('visibility');
     const navigate = useNavigate();
 
-    function showKey(){
-        const eye = document.getElementsByClassName('hideeye')[0]
-        const senha = document.getElementById('senha')
-        
-        olho === 'visibility_off'? setOlho('visibility'): setOlho('visibility_off')
-        olho === 'visibility_off'? senha.setAttribute('type', 'password'): senha.setAttribute('type', 'text')
+    function showKey() {
+        const eye = document.getElementsByClassName('hideeye')[0];
+        const senha = document.getElementById('senha');
+
+        olho === 'visibility_off' ? setOlho('visibility') : setOlho('visibility_off');
+        olho === 'visibility_off'
+            ? senha.setAttribute('type', 'password')
+            : senha.setAttribute('type', 'text');
         eye.innerText = olho;
     }
 
-    function Logar(event){
+    function Logar(event) {
         event.preventDefault();
         const campos = document.querySelectorAll('input');
 
-        alert('Login realizado com sucesso!')
-        navigate('/voluntario')
-        
+        alert('Login realizado com sucesso!');
+        navigate('/voluntario');
+
         // fetch('http://localhost:4000/Login', {
         //     method: "POST",
         //     headers: {"Content-Type": "application/json"},
         //     body: JSON.stringify({username: campos[0].value, key: campos[1].value})
         // })
-        // .then((res)=>{
-        //     return res.json();
-        // })
+        // .then((res)=> res.json())
         // .then((data)=>{
         //     alert(data.message);
         //     sessionStorage.setItem('token', data.token)
@@ -200,54 +239,46 @@ function LoginVoluntario(){
         // })
     }
 
-    return(
-        <>
-            <Div>
+    return (
+        <Div>
             <Container>
-                    <WelcomeBox>
-                        <WelcomeImg src="LogoICO.ico"/>
-                        <TitleWelcome>Bem vindo de volta!</TitleWelcome>
-                        <WelcomeMessage>Transforme seu tempo em impacto</WelcomeMessage>
-                    </WelcomeBox>
-                    <LoginBox>
-                    
-                        <FormLogin>
-                            <ContainerCampo>
-                                <CampoIcon className='material-symbols-outlined'>
-                                    account_circle
-                                </CampoIcon>
-                                <FundoCampo>
-                                    <Campo placeholder='Insira seu usuário'></Campo>
-                                </FundoCampo>
-                            </ContainerCampo>
-                            <ContainerCampo>
-                                <CampoIcon className='material-symbols-outlined'>
-                                    lock
-                                </CampoIcon>
-                                <FundoCampo>
-                                    <Campo id='senha' type='password' placeholder='Insira sua senha'></Campo>
-                                </FundoCampo>
-                                <span onClick={()=>{
-                                    showKey()
-                                }} className='material-symbols-outlined hideeye'>
-                                    visibility_off
-                                </span>
-                            </ContainerCampo>
-                            <Link to='/voluntario'>
-                                <Entrar onClick={(evt)=>{Logar(evt)}}>Entrar</Entrar>
-                            </Link>
-                            <P>Não possui cadastro ?
-                                <StyledLink to='/SignupVoluntario'>
-                                    clique aqui
-                                </StyledLink>
-                            </P>
-                        </FormLogin>
-                    </LoginBox>
+                <WelcomeBox>
+                    <WelcomeImg src="LogoICO.ico" />
+                    <TitleWelcome>Bem vindo de volta!</TitleWelcome>
+                    <WelcomeMessage>Transforme seu tempo em impacto</WelcomeMessage>
+                </WelcomeBox>
+
+                <FormLogin onSubmit={Logar}>
+                    <ContainerCampo>
+                        <CampoIcon className="material-symbols-outlined">account_circle</CampoIcon>
+                        <FundoCampo>
+                            <Campo placeholder="Insira seu usuário" />
+                        </FundoCampo>
+                    </ContainerCampo>
+                    <ContainerCampo>
+                        <CampoIcon className="material-symbols-outlined">lock</CampoIcon>
+                        <FundoCampo>
+                            <Campo id="senha" type="password" placeholder="Insira sua senha" />
+                        </FundoCampo>
+                        <span
+                            onClick={showKey}
+                            className="material-symbols-outlined hideeye"
+                        >
+                            visibility_off
+                        </span>
+                    </ContainerCampo>
+                    <PreferencesCampo>
+                            <PreferencesCheck type='checkbox'></PreferencesCheck>
+                            <CheckLabel>Lembrar senha?</CheckLabel>
+                    </PreferencesCampo>
+                    <Entrar type="submit">Entrar</Entrar>
+                    <P>
+                        Não possui cadastro ?
+                        <StyledLink to="/SignupVoluntario">clique aqui</StyledLink>
+                    </P>
+                </FormLogin>
             </Container>
-            </Div>
-        </>
-    )
+        </Div>
+    );
 }
-
-
 export default LoginVoluntario;

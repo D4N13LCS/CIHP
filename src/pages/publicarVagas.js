@@ -92,7 +92,7 @@ function PublicarVagas() {
         <h2>Cadastro de Vaga de Trabalho Voluntário</h2>
         <VagaForms onSubmit={handleSubmit}>
           {[
-            ["Nome da ONG", "nome_ong"],
+            ["Nome da instituição", "nome_ong"],
             ["CNPJ (opcional)", "cnpj"],
             ["Área de atuação", "area"],
             ["Site ou rede social", "site"],

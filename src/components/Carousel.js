@@ -13,7 +13,6 @@ const ContainerCarrosel = styled.div`
     padding-top: 50px;
 
     
-    
 `
 
 const ContainerImg = styled.div`
@@ -21,7 +20,6 @@ const ContainerImg = styled.div`
     align-items: center;
     justify-content:center;
     padding: 1em;
-
     
 `
 
@@ -29,13 +27,27 @@ const ContainerTxt = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.8em;
+
     @media screen and (max-width: 768px){
-       width: 225px;
+       font-size:12px;
+    }
+
+    @media screen and (max-width: 400px){
+        font-size:9px;
     }
 `
 
 const TitleCarousel = styled.h1`
     color: #423FA6;
+
+    @media screen and (max-width: 768px){
+       font-size:17px;
+       margin-top:12px;
+    }
+
+    @media screen and (max-width: 400px){
+        font-size:12px;
+    }
 `
 
 const TextCarousel = styled.p`
@@ -47,13 +59,13 @@ const Span = styled.span`
     color: white;
     background-color:rgba(156, 152, 152, 0.25);
     border-radius: 50%;
-    padding: 0.5em;
+    padding: 0.4em;
     &:hover{
         cursor: pointer;
     }
 
     @media screen and (max-width: 768px){
-       
+
     }
 `
 
@@ -62,8 +74,14 @@ const Img = styled.img`
     width: 320px;
 
     @media screen and (max-width: 768px){
-        height: 250px;
-        width: 250px;
+        height: 180px;
+        width: 180px;
+        margin-top:10px ;
+    }
+
+    @media screen and (max-width: 400px){
+        height: 120px;
+        width: 120px;
     }
 `
 
