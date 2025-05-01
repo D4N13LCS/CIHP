@@ -210,27 +210,51 @@ function SignupVoluntario() {
     eye.innerText = olho;
   }
 
-  // async function cadastrarVoluntario(event) {
-  //   event.preventDefault();
-  //   const campos = document.querySelectorAll('input');
+  function validar_senha(){
+    const senha = document.querySelector('#senha').value;
+    const char_length = 	/^.{8,}$/.test(senha)
+    const Maiuscula = /[A-Z]+/.test(senha)
+    const Minuscula = /[a-z]+/.test(senha)
+    const simbolos = /[^a-zA-Z0-9]/.test(senha)
+    const numero = /[0-9]+/.test(senha)
 
-  //   try {
-  //     const response = await fetch('http://localhost:4000/cadastro/Voluntario', {
-  //       method: 'POST',
-  //       headers: { 'Content-type': 'application/json' },
-  //       body: JSON.stringify({
-  //         username: campos[0].value,
-  //         senha: campos[1].value,
-  //       }),
-  //     });
+    if (!char_length || !Maiuscula || !Minuscula || !simbolos || !numero){
+      alert('Senha inválida')
+      return false
+    }else{
+      return true 
+    } 
+    
+  }
 
-  //     const dados = await response.json();
-  //     alert(dados.message);
-  //     navigate('/LoginVoluntario');
-  //   } catch (error) {
-  //     alert(error);
-  //   }
-  // }
+  async function cadastrarVoluntario(event) {
+    event.preventDefault();
+    const campos = document.querySelectorAll('input');
+
+    const senha = validar_senha()
+
+    if (!senha){
+      return 
+    }
+
+    try {
+      const response = await fetch('http://localhost:4000/cadastro/Voluntario', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify({
+          email: campos[0].value,
+          nome: campos[1].value,
+          senha: campos[2].value
+        }),
+      });
+
+      const dados = await response.json();
+      alert(dados.msg);
+      navigate('/LoginVoluntario');
+    } catch (error) {
+      alert(error);
+    }
+  }
 
   return (
     <Div>
@@ -253,7 +277,7 @@ function SignupVoluntario() {
         <ContainerCampo>
             <CampoIcon className="material-symbols-outlined">Mail</CampoIcon>
             <FundoCampo>
-              <Campo placeholder="Insira seu E-mail" />
+              <Campo id='email' placeholder="Insira seu E-mail" />
             </FundoCampo>
           </ContainerCampo>
           <ContainerCampo>
@@ -275,7 +299,7 @@ function SignupVoluntario() {
 
 
 
-          <Entrar>Cadastrar</Entrar>
+          <Entrar onClick={(evt)=>{cadastrarVoluntario(evt)}}>Cadastrar</Entrar>
           <P>
             Já possui cadastro? <StyledLink to="/LoginVoluntario">clique aqui</StyledLink>
           </P>

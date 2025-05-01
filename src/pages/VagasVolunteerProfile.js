@@ -44,6 +44,22 @@ const FullVagas = () => {
 
   }
 
+  async function listar_vagas(){
+    try{
+      const jobs = await fetch('/vagas', {
+        method: 'GET',
+        headers: {'Authorization': '', 'Content-Type': 'application/json'}
+      })
+
+      const jobsList = await jobs.json()
+
+      return jobsList
+    }catch(err){
+      alert('Não foi possível listar as vagas!')
+      console.log(err)
+    }
+  }
+
   const toggleFavorite = (id) => {
     setFavorites((prevFavorites) =>
       prevFavorites.includes(id)
@@ -52,7 +68,7 @@ const FullVagas = () => {
     );
   };
 
-  const filteredJobs = jobs.filter(
+  const filteredJobs = listar_vagas().filter(
     (job) =>
       (selectedCategory === "Todas" || job.category === selectedCategory) &&
       job.title.toLowerCase().includes(searchTerm.toLowerCase())

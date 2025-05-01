@@ -208,7 +208,7 @@ function LoginVoluntario() {
     function showKey() {
         const eye = document.getElementsByClassName('hideeye')[0];
         const senha = document.getElementById('senha');
-
+        
         olho === 'visibility_off' ? setOlho('visibility') : setOlho('visibility_off');
         olho === 'visibility_off'
             ? senha.setAttribute('type', 'password')
@@ -216,27 +216,26 @@ function LoginVoluntario() {
         eye.innerText = olho;
     }
 
-    function Logar(event) {
+    async function Logar(event) {
         event.preventDefault();
         const campos = document.querySelectorAll('input');
 
-        alert('Login realizado com sucesso!');
-        navigate('/voluntario');
+        try{
+            const response = await fetch('http://localhost:4000/Login/voluntario', {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({username: campos[0].value, key: campos[1].value})
+            });
 
-        // fetch('http://localhost:4000/Login', {
-        //     method: "POST",
-        //     headers: {"Content-Type": "application/json"},
-        //     body: JSON.stringify({username: campos[0].value, key: campos[1].value})
-        // })
-        // .then((res)=> res.json())
-        // .then((data)=>{
-        //     alert(data.message);
-        //     sessionStorage.setItem('token', data.token)
-        //     navigate('/voluntario')
-        // })
-        // .catch((err)=>{
-        //     alert(err);
-        // })
+            const data = await response.json();
+
+            alert(data.message);
+            sessionStorage.setItem('token', data.token);
+            navigate('/voluntario');
+        }catch(err){
+            alert('Não foi possível realizar login');
+            console.log(err)
+        }
     }
 
     return (
@@ -271,7 +270,7 @@ function LoginVoluntario() {
                             <PreferencesCheck type='checkbox'></PreferencesCheck>
                             <CheckLabel>Lembrar senha?</CheckLabel>
                     </PreferencesCampo>
-                    <Entrar type="submit">Entrar</Entrar>
+                    <Entrar type="submit" onClick={(evt)=>{Logar(evt)}}>Entrar</Entrar>
                     <P>
                         Não possui cadastro ?
                         <StyledLink to="/SignupVoluntario">clique aqui</StyledLink>

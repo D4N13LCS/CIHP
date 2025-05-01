@@ -1,0 +1,55 @@
+services:
+  front-end:
+    container_name: app
+    restart: always
+    ports:
+      - "3000:3000"
+    build:
+      context: .
+      dockerfile: app.dockerfile
+    networks:
+      - rede_cihp
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend
+    restart: always
+    ports:
+      - "4000:4000"
+    build:
+      context: ./server
+      dockerfile: ../backend.dockerfile
+    env_file:
+      - .env
+    networks:
+      - rede_cihp
+    depends_on: 
+      - db
+
+  
+  db:
+    container_name: db 
+    restart: always
+    ports:
+      - "3306:3306"
+    build:
+      context: .
+      dockerfile: db.dockerfile
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_DATABASE=cihp_bd
+      - MYSQL_ROOT_PASSWORD=P3ntatonica#18
+      - MYSQL_PASSWORD=P3ntatonica#18
+    networks:
+      - rede_cihp
+    volumes:
+      - db_volume:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
+
+networks:
+  rede_cihp:
+    driver: bridge
+    
+volumes:
+  db_volume:

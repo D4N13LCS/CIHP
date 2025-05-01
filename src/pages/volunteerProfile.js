@@ -320,6 +320,8 @@ const PreferencesBotao = styled.button`
 
 function VolunteerProfile(){
 
+    console.log(sessionStorage.getItem('token').split('.')[1])
+
     function openEdit(evt){
         const checkboxes = [...document.querySelectorAll('.checkbox')]
         evt.target.innerText === 'Editar'? evt.target.innerText = 'Salvar': evt.target.innerText = 'Editar'
@@ -341,7 +343,7 @@ function VolunteerProfile(){
                 <InfoContainer>
                     <Info>
                         <InfoTitle>Name</InfoTitle>
-                        <InfoItem>Daniel Cardoso</InfoItem>
+                        <InfoItem>Nao sei</InfoItem>
                     </Info>
                     <Info>
                         <InfoTitle>Email</InfoTitle>
