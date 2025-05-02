@@ -11,7 +11,7 @@ route.post('/voluntario', (req, res)=>{
             return res.status(500).send({'erro': err})
         }
         
-        conex.query('SELECT voluntario_id, voluntario_name, voluntario_key FROM voluntarios WHERE voluntario_name = ? AND voluntario_key = ?', 
+        conex.query('SELECT voluntario_id, voluntario_name, voluntario_key, voluntario_email FROM voluntarios WHERE voluntario_name = ? AND voluntario_key = ?', 
         [req.body.username, req.body.key],
         (err, result)=>{
             conex.release();
@@ -23,11 +23,16 @@ route.post('/voluntario', (req, res)=>{
                 return res.status(404).send({message: "Usuário ou senha inválidos"});
             }
 
-            const token = jwt.sign({id: result[0].id, username: result[0].username}, 'senha', {expiresIn: "2h"});
+            const token = jwt.sign({id: result[0].voluntario_id, username: result[0].voluntario_name, email: result[0].voluntario_email}, 'senha', {expiresIn: "2h"});
+            
+            jwt.verify(token, 'senha', (err, decoded)=>{
+                if (err){return res.status.send({err})}
+                req.decoded = decoded
+            })
 
             return res.status(200).send({resultado: result, 
                 message: `Seja Bem vindo(a), ${result[0].voluntario_name}!`,
-            token: token});
+            token: token, info: req.decoded});
         })
     })
 })

@@ -46,6 +46,7 @@ services:
     volumes:
       - db_volume:/var/lib/mysql
       - ./sql:/docker-entrypoint-initdb.d
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
 
 networks:
   rede_cihp:

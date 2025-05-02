@@ -231,6 +231,7 @@ function LoginVoluntario() {
 
             alert(data.message);
             sessionStorage.setItem('token', data.token);
+            sessionStorage.setItem('info', JSON.stringify(data.info));
             navigate('/voluntario');
         }catch(err){
             alert('Não foi possível realizar login');

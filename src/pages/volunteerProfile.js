@@ -321,7 +321,8 @@ const PreferencesBotao = styled.button`
 function VolunteerProfile(){
 
     console.log(sessionStorage.getItem('token').split('.')[1])
-
+    const user = JSON.parse(sessionStorage.getItem('info'))
+    console.log(user)
     function openEdit(evt){
         const checkboxes = [...document.querySelectorAll('.checkbox')]
         evt.target.innerText === 'Editar'? evt.target.innerText = 'Salvar': evt.target.innerText = 'Editar'
@@ -343,11 +344,11 @@ function VolunteerProfile(){
                 <InfoContainer>
                     <Info>
                         <InfoTitle>Name</InfoTitle>
-                        <InfoItem>Nao sei</InfoItem>
+                        <InfoItem>{JSON.parse(sessionStorage.getItem('info')).username}</InfoItem>
                     </Info>
                     <Info>
                         <InfoTitle>Email</InfoTitle>
-                        <InfoItem>danielmazzini6@gmail.com</InfoItem>
+                        <InfoItem>{JSON.parse(sessionStorage.getItem('info')).email}</InfoItem>
                     </Info>
                 </InfoContainer>
                 </ProfileContainer>
