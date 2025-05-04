@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import EditModal from '../components/EditModal';
 
 const ProfileContainer =  styled.div`
     display: flex;
@@ -74,9 +76,9 @@ const FundoImg = styled.div`
 `
 
 const FeedImg = styled.img`
-    
     height: 80px;
     width: 80px;
+    border-radius: 50%;
     position: relative;
     &:hover{
         cursor:pointer;
@@ -319,10 +321,35 @@ const PreferencesBotao = styled.button`
 `
 
 function VolunteerProfile(){
+    const [photo, setPhoto] = useState('uploads/profileDefault.png');
+    const [disp, setDisp] = useState('flex');
 
-    console.log(sessionStorage.getItem('token').split('.')[1])
-    const user = JSON.parse(sessionStorage.getItem('info'))
-    console.log(user)
+    function changeDisplay(){
+        const modal = document.getElementById('modal');
+        disp === 'none'?setDisp('flex'):setDisp('none');
+        modal.style.display = disp;
+    }
+    
+    async function getProfilePic(){
+        try{
+            const response = await fetch(`http://localhost:4000/voluntario/${JSON.parse(sessionStorage.getItem('info')).id}/profile-photo`, {
+                method: 'GET',
+                headers: {Authorization: `Bearer ${sessionStorage.getItem('token')}`}
+            })
+
+            const data = await response.json()
+            setPhoto(data.pic)
+        }catch(error){
+            alert(error)
+        }
+    }
+
+    useEffect(()=>{
+        getProfilePic()
+    }, [])
+    
+    
+
     function openEdit(evt){
         const checkboxes = [...document.querySelectorAll('.checkbox')]
         evt.target.innerText === 'Editar'? evt.target.innerText = 'Salvar': evt.target.innerText = 'Editar'
@@ -339,8 +366,9 @@ function VolunteerProfile(){
             <FeedContainerImg>
                 <ProfileContainer>
                 <FundoImg>
-                    <FeedImg src='https://cdn-icons-png.flaticon.com/512/10542/10542486.png'/>
+                    <FeedImg src={`http://localhost:4000/${photo}`}/>
                 </FundoImg>
+                
                 <InfoContainer>
                     <Info>
                         <InfoTitle>Name</InfoTitle>
@@ -353,10 +381,12 @@ function VolunteerProfile(){
                 </InfoContainer>
                 </ProfileContainer>
                 
-                <EditButton>Editar</EditButton>
+                <EditButton onClick={()=>{changeDisplay()}}>Editar</EditButton>
             </FeedContainerImg>
             
             
+            <EditModal disp={disp} setDisp={setDisp}  photo={photo} setPhoto={setPhoto} img={`http://localhost:4000/${photo}`}/>
+
             <LocationField>
                 <TextAreaContainer>
                     <H1andH2area>

@@ -210,6 +210,7 @@ function Perfis(props) {
 
   function Logout() {
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('info');
     navigate('/');
   }
 
