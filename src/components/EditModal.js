@@ -76,6 +76,41 @@ const ModalButton = styled.button`
 
 function EditModal(props){
     
+    function ShowContent(){
+        if (JSON.parse(sessionStorage.getItem('info')).tipo === 'voluntario'){
+            return (
+                <>
+                    <ModalHead>
+                        <ModalTitle>Editar perfil</ModalTitle>
+                        <CloseModal className='material-symbols-outlined' onClick={()=>{changeDisplay()}}>close</CloseModal>
+                    </ModalHead>
+
+                    <Container>
+                    <ModalImg src={props.img}/>
+                    <ContentContainer>
+                        <ModalFieldContainer>
+                            <ModalLabel>Nome:</ModalLabel>
+                            <ModalField className='field' required defaultValue={JSON.parse(sessionStorage.getItem('info')).username}/>
+                        </ModalFieldContainer>
+                        <ModalFieldContainer>
+                            <ModalLabel>Email:</ModalLabel>
+                            <ModalField className='field'  required defaultValue={JSON.parse(sessionStorage.getItem('info')).email}/>
+                        </ModalFieldContainer>
+                    </ContentContainer>
+                    </Container>
+                    
+                    <SelectImg id='selectPic' type='file'/>
+                    <ModalButton onClick={()=>{updateProfilePic()}}>Salvar</ModalButton>
+                </>
+            )
+        }else{
+            return (
+                <>
+                    
+                </>
+            )
+        }
+    }
 
     function changeDisplay(){
         const modal = document.getElementById('modal');
@@ -109,27 +144,7 @@ function EditModal(props){
         <>
             
                 <Modal id='modal'>
-                    <ModalHead>
-                        <ModalTitle>Editar perfil</ModalTitle>
-                        <CloseModal className='material-symbols-outlined' onClick={()=>{changeDisplay()}}>close</CloseModal>
-                    </ModalHead>
-
-                    <Container>
-                    <ModalImg src={props.img}/>
-                    <ContentContainer>
-                        <ModalFieldContainer>
-                            <ModalLabel>Nome:</ModalLabel>
-                            <ModalField className='field' defaultValue={JSON.parse(sessionStorage.getItem('info')).username}/>
-                        </ModalFieldContainer>
-                        <ModalFieldContainer>
-                            <ModalLabel>Email:</ModalLabel>
-                            <ModalField className='field'  defaultValue={JSON.parse(sessionStorage.getItem('info')).email}/>
-                        </ModalFieldContainer>
-                    </ContentContainer>
-                    </Container>
-                    
-                    <SelectImg id='selectPic' type='file'/>
-                    <ModalButton onClick={()=>{updateProfilePic()}}>Salvar</ModalButton>
+                    {ShowContent()}
                 </Modal>
    
         </>

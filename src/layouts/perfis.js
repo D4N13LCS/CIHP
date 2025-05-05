@@ -1,5 +1,7 @@
 import { useNavigate, Outlet } from 'react-router-dom';
+import { useState } from 'react';
 import styled from 'styled-components';
+import DeleteModal from '../components/DeleteModal';
 
 const Main = styled.main`
   display: flex;
@@ -195,7 +197,13 @@ const FeedImg = styled.img`
 function Perfis(props) {
   let navigate = useNavigate();
   const icons = props.icons.split(',')
-  
+  const [deleteDisp, setDeleteDisp] = useState('flex');
+
+  function showDeleteBox(){
+    deleteDisp === 'none'?setDeleteDisp('flex'):setDeleteDisp('none');
+    const delete_modal = document.getElementById('delete_modal');
+    delete_modal.style.display = deleteDisp;
+  }
 
   function MarcarPagina(e) {
     if (e.target.tagName === 'ICON') return;
@@ -251,7 +259,9 @@ function Perfis(props) {
             </Botao>
             <Botao>
               <BotaoIcon className="material-symbols-outlined">delete</BotaoIcon>
-              <span className='text'>Excluir conta</span>
+              <span className='text' onClick={()=>{
+                showDeleteBox()
+              }}>Excluir conta</span>
             </Botao>
           </ContainerBotao>
         </SideBar>
@@ -263,6 +273,7 @@ function Perfis(props) {
                 
             </FeedContainerImg>
             <FeedContainer className='variant'>
+              <DeleteModal showDeleteBox={showDeleteBox}/>
               <Outlet />
             </FeedContainer>
         </FeedContainer>

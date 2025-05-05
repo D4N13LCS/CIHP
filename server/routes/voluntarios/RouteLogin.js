@@ -23,7 +23,7 @@ route.post('/voluntario', (req, res)=>{
                 return res.status(404).send({message: "Usuário ou senha inválidos"});
             }
 
-            const token = jwt.sign({id: result[0].voluntario_id, username: result[0].voluntario_name, email: result[0].voluntario_email}, 'senha', {expiresIn: "2h"});
+            const token = jwt.sign({id: result[0].voluntario_id, username: result[0].voluntario_name, email: result[0].voluntario_email, tipo: 'voluntario'}, 'senha', {expiresIn: "2h"});
             
             jwt.verify(token, 'senha', (err, decoded)=>{
                 if (err){return res.status.send({err})}

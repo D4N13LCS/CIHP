@@ -32,4 +32,16 @@ route.put('/edit/:id/profile-photo', auth, upload.single('photo'), (req, res)=>{
     })
 })
 
+route.delete('/delete/:id', auth, (req, res)=>{
+    db.getConnection((err, conex)=>{
+        if (err){return res.status(500).send({err})}
+
+        conex.query('DELETE FROM voluntarios WHERE voluntario_email = ? AND voluntario_key = ? AND voluntario_id = ?', [req.body.email, req.body.senha, req.params.id], (err, result)=>{
+            if (err){ return res.status(500).send({err})}
+
+            return res.status(200).send({message: 'Usuário excluído com sucesso'})
+        })
+    })
+})
+
 module.exports = route;
