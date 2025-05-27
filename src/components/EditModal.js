@@ -75,8 +75,11 @@ const ModalButton = styled.button`
 `
 
 function EditModal(props){
+    const [user_nome, setUser_nome] = useState(JSON.parse(sessionStorage.getItem('info')).username);
+    const [user_email, setUser_email] = useState(JSON.parse(sessionStorage.getItem('info')).email);
     
     function ShowContent(){
+        
         if (JSON.parse(sessionStorage.getItem('info')).tipo === 'voluntario'){
             return (
                 <>
@@ -90,17 +93,20 @@ function EditModal(props){
                     <ContentContainer>
                         <ModalFieldContainer>
                             <ModalLabel>Nome:</ModalLabel>
-                            <ModalField className='field' required defaultValue={JSON.parse(sessionStorage.getItem('info')).username}/>
+                            <ModalField className='field_Modal' required defaultValue={user_nome}/>
                         </ModalFieldContainer>
                         <ModalFieldContainer>
                             <ModalLabel>Email:</ModalLabel>
-                            <ModalField className='field'  required defaultValue={JSON.parse(sessionStorage.getItem('info')).email}/>
+                            <ModalField className='field_Modal'  required defaultValue={user_email}/>
                         </ModalFieldContainer>
                     </ContentContainer>
                     </Container>
                     
-                    <SelectImg id='selectPic' type='file'/>
-                    <ModalButton onClick={()=>{updateProfilePic()}}>Salvar</ModalButton>
+                    <SelectImg id='selectPic' type='file' defaultValue={''}/>
+                    <ModalButton onClick={()=>{
+                        updateProfilePic(document.querySelectorAll('.field_Modal')[0], document.querySelectorAll('.field_Modal')[1]);
+                        changeDisplay();
+                        }}>Salvar</ModalButton>
                 </>
             )
         }else{
@@ -118,13 +124,13 @@ function EditModal(props){
         modal.style.display = props.disp;
     }
 
-    async function updateProfilePic(){
+    async function updateProfilePic(name, mail){
         try{
             const formData = new FormData();
             const selectPic = document.getElementById('selectPic');
             formData.append("photo", selectPic.files[0]);
-            const campos = document.getElementsByClassName('field');
-            formData.append('user', JSON.stringify({nome: campos[0].value, email: campos[1].value}))
+            formData.append('user', JSON.stringify({nome: name.value, email: mail.value}))
+            
             const token = sessionStorage.getItem('token');
             const response = await fetch(`http://localhost:4000/voluntario/edit/${JSON.parse(sessionStorage.getItem('info')).id}/profile-photo`, {
                 method: 'PUT',
@@ -135,6 +141,9 @@ function EditModal(props){
             const data = await response.json();
             alert(data.message);
             props.setPhoto(data.pic);
+            setUser_nome(name.value);
+            setUser_email(mail.value);
+            sessionStorage.setItem('info', JSON.stringify({id: JSON.parse(sessionStorage.getItem('info')).id, username: name.value, email: mail.value, tipo: JSON.parse(sessionStorage.getItem('info')).tipo, iat: JSON.parse(sessionStorage.getItem('info')).iat, exp: JSON.parse(sessionStorage.getItem('info')).exp}))
         }catch(error){
             alert(error)
         }

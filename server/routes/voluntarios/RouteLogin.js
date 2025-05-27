@@ -11,7 +11,7 @@ route.post('/voluntario', (req, res)=>{
             return res.status(500).send({'erro': err})
         }
         
-        conex.query('SELECT voluntario_id, voluntario_name, voluntario_key, voluntario_email FROM voluntarios WHERE voluntario_name = ? AND voluntario_key = ?', 
+        conex.query('SELECT voluntario_id, voluntario_name, voluntario_key, voluntario_email FROM Voluntarios WHERE voluntario_name = ? AND voluntario_key = ?', 
         [req.body.username, req.body.key],
         (err, result)=>{
             conex.release();

@@ -10,7 +10,7 @@ router.post('/voluntario', (req, res)=>{
     pool.getConnection((err, conex)=>{
         if (err){ res.status(500).send({err})}
 
-        conex.query('INSERT INTO voluntarios(voluntario_name, voluntario_email, voluntario_key) VALUES (?, ?, ?)', [req.body.nome, req.body.email, req.body.senha], (err, result)=>{
+        conex.query('INSERT INTO Voluntarios(voluntario_name, voluntario_email, voluntario_key) VALUES (?, ?, ?)', [req.body.nome, req.body.email, req.body.senha], (err, result)=>{
             
             if (err){
                 conex.release();

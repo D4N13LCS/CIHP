@@ -238,7 +238,7 @@ function SignupVoluntario() {
     }
 
     try {
-      const response = await fetch('http://localhost:4000/cadastro/Voluntario', {
+        const response = await fetch('http://localhost:4000/cadastro/voluntario', {
         method: 'POST',
         headers: { 'Content-type': 'application/json' },
         body: JSON.stringify({
