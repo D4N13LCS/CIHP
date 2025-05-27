@@ -296,9 +296,7 @@ function SignupVoluntario() {
               visibility_off
             </span>
           </ContainerCampo>
-
-
-
+          
           <Entrar onClick={(evt)=>{cadastrarVoluntario(evt)}}>Cadastrar</Entrar>
           <P>
             Já possui cadastro? <StyledLink to="/LoginVoluntario">clique aqui</StyledLink>
