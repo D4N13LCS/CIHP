@@ -17,6 +17,7 @@ import ONGtrabalho from './pages/ONGtrabalho';
 import PublicarVagas from './pages/publicarVagas';
 import PaginaInscricao from './pages/PaginaInscricao';
 import EmpresaTrabalho from './pages/EmpresaTrabalho';
+import AboutPage from './pages/Sobrenos';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path='/SignupInstituicao' element={<SignupEmpresa/>}/>
           <Route path='/vagas' element={<VagasVolunteerProfile/>}/>
           <Route path='/Inscricao' element={<PaginaInscricao/>}/>
+          <Route path='/sobrenos' element={<AboutPage />} />
 
           <Route path='/voluntario' element={<Perfis opcao1='Perfil' opcao2='Trabalhos' opcao3='Prêmios recebidos' opcao4='Vagas' rota='/voluntario/' icons='person,work_history,trophy'/>}>
               <Route index element={<VolunteerProfile />} />

@@ -468,4 +468,3 @@ function VolunteerProfile(){
 export default VolunteerProfile;
 
 // layout inspirado em: https://www.behance.net/gallery/176941329/Edit-Profile-UI
-

@@ -13,12 +13,12 @@ const Img = styled.img`
 
 
 
-const NavigationBar = () => {
+const NavBar = () => {
 
   return (
     <Navbar expand="lg" className="shadow-sm bg-light fixed-top">
       <Container>
-        <Navbar.Brand href="#" className="fw-bold fs-3 text-dark"><Img src={logo} />CIHP</Navbar.Brand>
+        <Navbar.Brand href="/" className="fw-bold fs-3 text-dark"><Img src={logo} />CIHP</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -27,7 +27,7 @@ const NavigationBar = () => {
             <Nav.Link href="#" className="font-weight-bold text-dark">Causas Populares</Nav.Link>
             <Nav.Link href="#" className="font-weight-bold text-dark">Vagas Recentes </Nav.Link>
             <Nav.Link href="#" className="text-dark">Empresas Cadastradas</Nav.Link>
-            <Nav.Link href="#" className="text-dark">Sobre Nós</Nav.Link>
+            <Nav.Link href="/Sobrenos" className="text-dark">Sobre Nós</Nav.Link>
           </Nav>
           <div className="d-flex align-items-center gap-3">
             <Search size={20} className="text-dark" />
@@ -39,4 +39,4 @@ const NavigationBar = () => {
   );
 };
 
-export default NavigationBar;
+export default NavBar;
