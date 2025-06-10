@@ -225,20 +225,21 @@ function LoginEmpresa() {
         alert('Login realizado com sucesso!');
         navigate('/Instituicao');
 
-        // fetch('http://localhost:4000/Login', {
-        //     method: "POST",
-        //     headers: {"Content-Type": "application/json"},
-        //     body: JSON.stringify({username: campos[0].value, key: campos[1].value})
-        // })
-        // .then((res)=> res.json())
-        // .then((data)=>{
-        //     alert(data.message);
-        //     sessionStorage.setItem('token', data.token)
-        //     navigate('/voluntario')
-        // })
-        // .catch((err)=>{
-        //     alert(err);
-        // })
+        fetch('http://localhost:4000/Login/instituicao', {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({nome: campos[0].value, senha: campos[1].value})
+        })
+        .then((res)=> res.json())
+        .then((data)=>{
+            alert(data.message);
+            sessionStorage.setItem('token', data.token);
+            sessionStorage.setItem('info', JSON.stringify(data.info));
+            navigate('/Instituicao')
+        })
+        .catch((err)=>{
+            alert(err);
+        })
     }
 
     return (

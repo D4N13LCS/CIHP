@@ -323,8 +323,8 @@ function VolunteerProfile(){
                 </FundoImg>
                 <InfoContainer>
                     <Info>
-                        <InfoTitle>ONG</InfoTitle>
-                        <InfoItem>Guerreiros da Pátria</InfoItem>
+                        <InfoTitle>{JSON.parse(sessionStorage.getItem('info')).tipo}</InfoTitle>
+                        <InfoItem>{JSON.parse(sessionStorage.getItem('info')).username}</InfoItem>
                     </Info>
                     <Info>
                         <InfoTitle>Email</InfoTitle>
