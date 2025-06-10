@@ -278,7 +278,7 @@ function FormInscricao(props){
         <>
             <BannerContainer>
                 <Banner>
-                    <BannerImg src={props.imagem}/>
+                    <BannerImg src={`http://localhost:4000/${props.imagem}`}/>
                 
                 <BannerDiscription>
                     <BannerTitle id="titulo" className="dados">{props.nome}</BannerTitle>

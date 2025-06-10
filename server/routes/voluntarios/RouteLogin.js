@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const route = express.Router();
 
 
-route.post('/voluntario', (req, res)=>{
+route.post('/', (req, res)=>{
     db.getConnection((err, conex)=>{
         if(err){
             conex.release();

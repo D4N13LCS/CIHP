@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 
 
-router.post('/voluntario', (req, res)=>{
+router.post('/', (req, res)=>{
     pool.getConnection((err, conex)=>{
         if (err){ res.status(500).send({err})}
 

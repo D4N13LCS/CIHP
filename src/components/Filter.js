@@ -32,7 +32,6 @@ const OpcoesContainer = styled.div`
     display: none;
     justify-content: center;
     width: 100%;
-    
 `
 
 const OpcoesSelect = styled.form`
@@ -45,6 +44,7 @@ const OpcoesSelect = styled.form`
     padding: 1em;
     position: absolute;
     z-index: 1;
+    box-shadow: 0px 1px 2.5px 1px rgba(0, 0, 0, 0.47);
 `
 
 const LegendField = styled.legend`

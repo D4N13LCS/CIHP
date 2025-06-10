@@ -23,11 +23,21 @@ create table Instituicoes(
     tipo varchar(11) not null 
 );
 
-create table Vagas(
+create table vagas(
 	id_vaga int primary key auto_increment,
+    titulo varchar(200) not null,
+    descricao longtext not null,
+    categoria varchar(200) not null,
+    localidade varchar(255) not null,
+    image varchar(255) not null,
     total_de_vagas int not null,
     vagas_disponiveis int not null,
-    instituicao_id int default 0,
+    instituicao_organizadora int not null,
+    instituicao_bonificadora int default 0,
+    situacao varchar(12) default 'em andamento',
+    data_inicio datetime not null,
+    data_conclusao datetime default null,
+	valor_pontuacao int not null,
     foreign key(instituicao_id) references Instituicoes(id_instituicao)
 );
 
@@ -40,18 +50,6 @@ create table Inscricoes(
     foreign key(vaga_id) references Vagas(id_vaga)
 );
 
-create table Trabalhos(
-	id_trabalho int primary key auto_increment,
-    vaga_id int not null,
-    instituicao_id int not null,
-	situacao varchar(12) default 'em andamento',
-    data_inicio datetime not null,
-    data_conclusao datetime default null,
-	valor_pontuacao int not null,
-    foreign key(vaga_id) references Vagas(id_vaga),
-    foreign key(instituicao_id) references Instituicoes(id_instituicao)
-);
-
 create table Premios(
 	id_premio int primary key auto_increment,
     nome varchar(100) not null,
@@ -62,3 +60,16 @@ create table Premios(
     foreign key(vaga_id) references Vagas(id_vaga),
     foreign key(instituicao_id) references Instituicoes(id_instituicao)
 );
+
+Delimiter //
+
+create trigger calc_vagas_disp
+after insert on Inscricoes 
+for each row 
+begin
+	update vagas set vagas_disponiveis = vagas_disponiveis - 1 where id_vaga = new.vaga_id; 
+end;
+
+//
+
+delimiter ;

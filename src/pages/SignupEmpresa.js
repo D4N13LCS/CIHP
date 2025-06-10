@@ -201,9 +201,38 @@ const P = styled.p`
   flex-wrap: wrap;
 `;
 
+const SelectContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Label = styled.label`
+  margin-bottom: 0.35rem;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #261A6B;
+`;
+
+const StyledSelect = styled.select`
+  padding: 0.4rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+
+  &:focus {
+    outline: none;
+    border-color: #7b3fe4;
+    box-shadow: 0 0 0 2px rgba(123, 63, 228, 0.2);
+  }
+`;
+
+
 function SignupEmpresa() {
   const [olho, setOlho] = useState('visibility');
   const navigate = useNavigate();
+  const [userType, setUserType] = useState('ONG');
 
   function showKey() {
     const eye = document.getElementsByClassName('hideeye')[0];
@@ -216,27 +245,30 @@ function SignupEmpresa() {
     eye.innerText = olho;
   }
 
-  // async function cadastrarVoluntario(event) {
-  //   event.preventDefault();
-  //   const campos = document.querySelectorAll('input');
+  async function cadastrarInsituicao(event) {
+    event.preventDefault();
+    const campos = document.querySelectorAll('input');
 
-  //   try {
-  //     const response = await fetch('http://localhost:4000/cadastro/Voluntario', {
-  //       method: 'POST',
-  //       headers: { 'Content-type': 'application/json' },
-  //       body: JSON.stringify({
-  //         username: campos[0].value,
-  //         senha: campos[1].value,
-  //       }),
-  //     });
+    try {
+      const response = await fetch('http://localhost:4000/cadastro/instituicao', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify({
+          cnpj: campos[0].value,
+          nome: campos[1].value,
+          email: campos[2].value,
+          senha: campos[3].value,
+          tipo: userType
+        }),
+      });
 
-  //     const dados = await response.json();
-  //     alert(dados.message);
-  //     navigate('/LoginInstituicao');
-  //   } catch (error) {
-  //     alert(error);
-  //   }
-  // }
+      const dados = await response.json();
+      alert(dados.msg);
+      navigate('/LoginInstituicao');
+    } catch (error) {
+      alert(error);
+    }    
+  }
 
   return (
     <Div>
@@ -255,17 +287,22 @@ function SignupEmpresa() {
         </WelcomeBox>
 
         <FormLogin>
-
         <ContainerCampo>
-            <CampoIcon className="material-symbols-outlined">Mail</CampoIcon>
+            <CampoIcon className="material-symbols-outlined">badge</CampoIcon>
             <FundoCampo>
-              <Campo placeholder="Insira seu E-mail" />
+              <Campo placeholder="Insira seu CNPJ" />
             </FundoCampo>
           </ContainerCampo>
           <ContainerCampo>
             <CampoIcon className="material-symbols-outlined">account_circle</CampoIcon>
             <FundoCampo>
               <Campo placeholder="Insira seu usuário" />
+            </FundoCampo>
+          </ContainerCampo>
+        <ContainerCampo>
+            <CampoIcon className="material-symbols-outlined">Mail</CampoIcon>
+            <FundoCampo>
+              <Campo placeholder="Insira seu E-mail" />
             </FundoCampo>
           </ContainerCampo>
 
@@ -278,10 +315,17 @@ function SignupEmpresa() {
               visibility_off
             </span>
           </ContainerCampo>
+          <SelectContainer value={userType} onChange={(e) => setUserType(e.target.value)}>
+          <Label htmlFor="userType">Tipo de Instituição</Label>
+          <StyledSelect id="userType">
+            <option value="ONG">ONG</option>
+            <option value="Empresa">Empresa</option>
+          </StyledSelect>
+        </SelectContainer>
 
 
 
-          <Entrar >Cadastrar</Entrar>
+          <Entrar onClick={(evt)=>{cadastrarInsituicao(evt)}} >Cadastrar</Entrar>
           <P>
             Já possui cadastro? <StyledLink to="/LoginInstituicao">clique aqui</StyledLink>
           </P>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Button, Form, InputGroup } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import { Heart, Search } from "react-feather";
@@ -38,27 +38,14 @@ const FullVagas = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Todas");
   const [favorites, setFavorites] = useState([]);
+  const [vagas, setVagas] = useState([]);
 
-  const Inscrever = (e)=>{
-    navigate('/Inscricao', {state: {id: e.id, titulo: e.title, location: e.location, categoria: e.category, descricao: e.description, imagem: e.image}})
+  // const Inscrever = (e)=>{
+  //   navigate('/Inscricao', {state: {id: e.id_vaga, titulo: e.titulo, location: e.localidade, categoria: e.categoria, descricao: e.descricao, imagem: e.image}})
 
-  }
+  // }
 
-  async function listar_vagas(){
-    try{
-      const jobs = await fetch('/vagas', {
-        method: 'GET',
-        headers: {'Authorization': '', 'Content-Type': 'application/json'}
-      })
-
-      const jobsList = await jobs.json()
-
-      return jobsList
-    }catch(err){
-      alert('Não foi possível listar as vagas!')
-      console.log(err)
-    }
-  }
+  
 
   const toggleFavorite = (id) => {
     setFavorites((prevFavorites) =>
@@ -68,11 +55,78 @@ const FullVagas = () => {
     );
   };
 
-  const filteredJobs = listar_vagas().filter(
+  const filteredJobs = vagas.filter(
     (job) =>
-      (selectedCategory === "Todas" || job.category === selectedCategory) &&
-      job.title.toLowerCase().includes(searchTerm.toLowerCase())
+      (selectedCategory === "Todas" || job.categoria === selectedCategory) &&
+      job.titulo.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+    function getDataHoraBrasileiraSQL() {
+    const agora = new Date();
+
+    const dia = String(agora.getDate()).padStart(2, '0');
+    const mes = String(agora.getMonth() + 1).padStart(2, '0');
+    const ano = agora.getFullYear();
+
+    const hora = String(agora.getHours()).padStart(2, '0');
+    const minuto = String(agora.getMinutes()).padStart(2, '0');
+    const segundo = String(agora.getSeconds()).padStart(2, '0');
+
+    
+    const dataBR = `${dia}/${mes}/${ano} ${hora}:${minuto}:${segundo}`;
+
+    const dataSQL = `${ano}-${mes}-${dia} ${hora}:${minuto}:${segundo}`;
+
+    return dataSQL;
+  }
+
+
+  async function Inscrever(id_vaga) {
+  try {
+    const now = getDataHoraBrasileiraSQL();
+    const id_voluntario = parseInt(JSON.parse(sessionStorage.getItem('info')).id);
+
+    const data = await fetch(`http://localhost:4000/vagas/${id_vaga}/Inscricao`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+      },
+      body: JSON.stringify({
+        id_voluntario,
+        data: now
+      })
+    });
+
+    const response = await data.json();
+    alert(response.msg);
+  } catch (error) {
+    console.error(error);
+    alert('Erro ao se inscrever na vaga.');
+  }
+}
+
+
+  useEffect(()=>{
+      async function listar_vagas(){
+      try{
+        const jobs = await fetch('http://localhost:4000/vagas', {
+          method: 'GET',
+          headers: {'Authorization': `Bearer ${sessionStorage.getItem('token')}`, 'Content-Type': 'application/json'}
+        })
+        
+        const jobsList = await jobs.json();
+        setVagas(jobsList.result);
+      }catch(err){
+        alert('Não foi possível listar as vagas!')
+        console.log(err)
+      }
+    }
+
+    listar_vagas()
+
+    
+  }, [])
 
   return (
     
@@ -111,23 +165,23 @@ const FullVagas = () => {
       
       <div className="row justify-content-center">
         {filteredJobs.map((job) => (
-          <div key={job.id} className="col-12 col-sm-6 col-md-4 mb-4 d-flex">
+          <div key={job.id_vaga} className="col-12 col-sm-6 col-md-4 mb-4 d-flex">
             <Card className="shadow-sm position-relative w-100" style={{ borderRadius: "12px"}}>
               <button 
                 className="position-absolute top-0 end-0 m-2 btn btn-light rounded-circle" 
-                onClick={() => toggleFavorite(job.id)}
+                onClick={() => toggleFavorite(job.id_vaga)}
                 style={{ width: "35px", height: "35px", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", backgroundColor: "white", border: "1px solid #ddd" }}
               >
-                <Heart fill={favorites.includes(job.id) ? "red" : "none"} color={favorites.includes(job.id) ? "red" : "gray"} />
+                <Heart fill={favorites.includes(job.id_vaga) ? "red" : "none"} color={favorites.includes(job.id_vaga) ? "red" : "gray"} />
               </button>
-              <Card.Img variant="top" src={job.image} style={{ borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }} />
+              <Card.Img variant="top" src={`http://localhost:4000/${job.image}`} style={{ borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }} />
               <Card.Body className="text-left">
-                <Card.Title style={{ color: "#000", fontFamily: "Merriweather, serif" }}>{job.title}</Card.Title>
-                <Card.Text>{job.description}</Card.Text>
+                <Card.Title style={{ color: "#000", fontFamily: "Merriweather, serif" }}>{job.titulo}</Card.Title>
+                <Card.Text>{job.descricao}</Card.Text>
                 <Card.Text>
-                  <small className="text-muted">{job.location}</small>
+                  <small className="text-muted">{job.localidade}</small>
                 </Card.Text>
-                <Button variant="primary" onClick={()=>{Inscrever(job)}}>Inscrever-se</Button>
+                <Button variant="primary" onClick={()=>{Inscrever(job.id_vaga)}}>Inscrever-se</Button>
               </Card.Body>
             </Card>
           </div>
